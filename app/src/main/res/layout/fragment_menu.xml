@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.navigation.MenuFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/menuConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/chooseDifficulty_tv"
+            app:layout_constraintGuide_percent="0.36"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <Button
+            android:id="@+id/hard_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hard"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/normal_btn"
+            tools:layout_editor_absoluteX="162dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="102dp"
+            android:layout_marginEnd="101dp"
+            android:contentDescription="@string/app_logo_description"
+            android:src="@drawable/app_logo"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/normal_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal"
+            app:layout_constraintBottom_toTopOf="@+id/hard_btn"
+            app:layout_constraintTop_toBottomOf="@+id/easy_btn"
+            tools:layout_editor_absoluteX="162dp" />
+
+        <Button
+            android:id="@+id/easy_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Easy"
+            app:layout_constraintBottom_toTopOf="@+id/normal_btn"
+            app:layout_constraintTop_toBottomOf="@+id/chooseDifficulty_tv"
+            tools:layout_editor_absoluteX="162dp" />
+
+        <TextView
+            android:id="@+id/chooseDifficulty_tv"
+            style="@style/quiz_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="229dp"
+            android:layout_marginEnd="116dp"
+            android:padding="8dp"
+            android:text="@string/choose_difficulty"
+            app:layout_constraintBottom_toTopOf="@+id/easy_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_begin="577dp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hard_btn" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
