@@ -1,4 +1,4 @@
-package com.example.kvizprogramiranje1
+package com.example.kvizprogramiranje1.Singleton
 
 /* Sadrzi podatke o korisnicima */
 object userSingletonData {
@@ -6,8 +6,16 @@ object userSingletonData {
 
     //Konstruktor
     fun init() {
-        userData.add(UserSingleton(0,"Tarik", 0))
-        userData.add(UserSingleton(1,"Irhad", 1000))
+        userData.add(
+            UserSingleton(0, "Tarik", 0)
+        )
+        userData.add(
+            UserSingleton(
+                1,
+                "Irhad",
+                1000
+            )
+        )
     }
 
     //Vracanje liste s podacima
