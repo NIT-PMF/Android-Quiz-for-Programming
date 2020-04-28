@@ -4,6 +4,6 @@
     app:startDestination="@id/menuFragment">
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.kvizprogramiranje1.Screens.MainQuiz.MenuFragment"
+        android:name="com.example.kvizprogramiranje1.screens.main.MenuFragment"
         android:label="MenuFragment" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.kvizprogramiranje1.Screens.MainQuiz
+package com.example.kvizprogramiranje1.screens
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
