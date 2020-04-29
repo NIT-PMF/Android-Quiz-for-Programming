@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.fragment.app.replace
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.kvizprogramiranje1.R
@@ -23,12 +21,17 @@ class MenuFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_menu, container, false)
 
-        binding.easyBtn.setOnClickListener { replaceFragment() }
+        binding.easyBtn.setOnClickListener {view : View ->
+            view.findNavController().navigate(R.id.action_menuFragment_to_gameFragment2)}
+        binding.normalBtn.setOnClickListener {view : View ->
+            view.findNavController().navigate(R.id.action_menuFragment_to_gameFragment2)}
+        binding.hardBtn.setOnClickListener {view : View ->
+            view.findNavController().navigate(R.id.action_menuFragment_to_gameFragment2)}
+
 
         setHasOptionsMenu(true)
         return binding.root
     }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.options_menu, menu)
@@ -43,6 +46,5 @@ class MenuFragment : Fragment() {
     private fun replaceFragment() {
 
     }
-
 
 }
