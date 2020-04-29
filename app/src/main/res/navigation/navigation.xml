@@ -8,10 +8,18 @@
         android:id="@+id/menuFragment"
         android:name="com.example.kvizprogramiranje1.screens.main.MenuFragment"
         android:label="MenuFragment"
-        tools:layout="@layout/fragment_menu"/>
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_gameFragment2"
+            app:destination="@id/gameFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.kvizprogramiranje1.screens.game.GameFragment"
         android:label="GameFragment"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_self"
+            app:destination="@id/gameFragment" />
+    </fragment>
 </navigation>
