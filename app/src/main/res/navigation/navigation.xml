@@ -14,4 +14,12 @@
         android:name="com.example.kvizprogramiranje1.screens.game.GameFragment"
         android:label="GameFragment"
         tools:layout="@layout/fragment_game" />
+    <fragment
+        android:id="@+id/rulesFragment"
+        android:name="com.example.kvizprogramiranje1.screens.main.RulesFragment"
+        android:label="RulesFragment" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.kvizprogramiranje1.screens.main.AboutFragment"
+        android:label="AboutFragment" />
 </navigation>

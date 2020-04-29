@@ -2,18 +2,18 @@ package com.example.kvizprogramiranje1.singleton
 
 /** Sadrzi podatke o korisnicima **/
 object userSingletonData {
-    private var userData: MutableList<UserSingleton?> = mutableListOf()
+    private var userData: MutableList<User?> = mutableListOf()
 
     //Konstruktor za korisnika
     init {
         userData.add(
-            UserSingleton(
+            User(
                 0,
                 "Tarik",
                 0)
         )
         userData.add(
-            UserSingleton(
+            User(
                 1,
                 "Irhad",
                 1000
@@ -22,18 +22,18 @@ object userSingletonData {
     }
 
     //Vracanje liste s podacima
-    fun getUserData(): MutableList<UserSingleton?> {
+    fun getUserData(): MutableList<User?> {
         return userData
     }
 
-    fun findUser(username: String): UserSingleton? {
+    fun findUser(username: String): User? {
         return userData.find {
             user -> user?.username.equals(username)
         }
     }
 
     //Vracanje korisnika po ID-u
-    fun getUserById(UserId: Number): UserSingleton? {
+    fun getUserById(UserId: Number): User? {
         return userData.find { it?.id == UserId }
     }
 
@@ -43,9 +43,9 @@ object userSingletonData {
     }
 
     //Dodaj Novog Korisnika
-    fun addUser(User: UserSingleton) {
+    fun addUser(User: User) {
         userData.add(User)
     }
 }
 
-data class UserSingleton(val id: Number, val username: String, val score: Number)
+data class User(val id: Number, val username: String, val score: Number)
