@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentGameBinding
+import kotlinx.android.synthetic.*
 
 class GameFragment : Fragment() {
 

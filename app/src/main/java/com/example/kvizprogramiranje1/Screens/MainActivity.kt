@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         val username: String = binding.usernamePt.text.toString()
 
         if (userSingletonData.findUser(username) != null) {
-            showToast(applicationContext, "User Already Exists.Choose another")
+            showToast(applicationContext, "User Already Exists. Choose another")
         } else {
             if (checkUsername(username)) {
                 Log.i("MainActivity", userSingletonData.getUserData().toString())

@@ -16,17 +16,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/chooseDifficulty_tv"
-            app:layout_constraintGuide_percent="0.36"
+            app:layout_constraintGuide_percent="0.3"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <Button
             android:id="@+id/hard_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="162dp"
+            android:layout_marginEnd="161dp"
             android:text="Hard"
             app:layout_constraintBottom_toTopOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/normal_btn"
-            tools:layout_editor_absoluteX="162dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -45,19 +47,25 @@
             android:id="@+id/normal_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="162dp"
+            android:layout_marginEnd="161dp"
             android:text="Normal"
             app:layout_constraintBottom_toTopOf="@+id/hard_btn"
-            app:layout_constraintTop_toBottomOf="@+id/easy_btn"
-            tools:layout_editor_absoluteX="162dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/easy_btn" />
 
         <Button
             android:id="@+id/easy_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="162dp"
+            android:layout_marginEnd="161dp"
             android:text="Easy"
             app:layout_constraintBottom_toTopOf="@+id/normal_btn"
-            app:layout_constraintTop_toBottomOf="@+id/chooseDifficulty_tv"
-            tools:layout_editor_absoluteX="162dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chooseDifficulty_tv" />
 
         <TextView
             android:id="@+id/chooseDifficulty_tv"
@@ -81,7 +89,7 @@
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_begin="577dp"
+            app:layout_constraintGuide_begin="529dp"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hard_btn" />

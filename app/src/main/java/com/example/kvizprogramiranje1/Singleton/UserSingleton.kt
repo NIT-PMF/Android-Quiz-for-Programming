@@ -4,7 +4,7 @@ package com.example.kvizprogramiranje1.singleton
 object userSingletonData {
     private var userData: MutableList<UserSingleton?> = mutableListOf()
 
-    //Konstruktor
+    //Konstruktor za korisnika
     init {
         userData.add(
             UserSingleton(
