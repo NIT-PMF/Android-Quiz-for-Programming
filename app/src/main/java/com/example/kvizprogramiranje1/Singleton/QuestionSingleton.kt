@@ -1,5 +1,6 @@
 package com.example.kvizprogramiranje1.singleton
 
+import com.example.kvizprogramiranje1.logic.allQuestions
 import com.example.kvizprogramiranje1.logic.getHalfQuestions
 import com.example.kvizprogramiranje1.logic.getQuarterQuestions
 
@@ -17,26 +18,7 @@ object questionSingletonData {
 
     //Konstruktor za pitanja
     init {
-        questionsEasyData.add(
-            Question(
-                0,
-                "hmmm?",
-                null,
-                mutableListOf("odg1", "odg2"),
-                mutableListOf("odg1"),
-                false,
-                QUESTION_SINGLE_CHOICE
-        ))
-        questionsEasyData.add(
-            Question(
-                1,
-                "hmmm2?",
-                null,
-                mutableListOf("odg1", "odg2", "odg3", "odg4"),
-                mutableListOf("odg1", "odg4"),
-                false,
-                QUESTION_MULTIPLE_CHOICE
-        ))
+        val (questionsEasyData, questionNormalData, questionHardData) = allQuestions()
     }
 
     //Vracanje liste s podacima

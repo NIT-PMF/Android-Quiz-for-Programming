@@ -31,3 +31,4 @@
             android:id="@+id/action_gameFragment_self"
             app:destination="@id/gameFragment" />
 </navigation>
+
