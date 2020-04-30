@@ -110,7 +110,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
         mutableListOf(
             Question(
                 1,
-                "hmmm?",
+                "hmmm?1",
                 null,
                 mutableListOf("odg1", "odg2"),
                 mutableListOf("odg1"),
@@ -119,36 +119,36 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             ),
             Question(
                 2,
-                "hmmm?",
+                "hmmm?2",
                 null,
                 mutableListOf("odg1", "odg2", "odg3"),
                 mutableListOf("odg1", "odg2"),
-                false,
+                true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 3,
-                "hmmm?",
+                "hmmm?3",
                 null,
-                mutableListOf("odg1", "odg2", "odg3"),
+                null,
                 mutableListOf("odg1", "odg2"),
-                false,
+                true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 4,
-                "hmmm?",
+                "hmmm?4",
                 null,
                 mutableListOf("odg1", "odg2", "odg3"),
                 mutableListOf("odg1", "odg2"),
-                false,
+                true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 5,
-                "hmmm?",
+                "hmmm?5",
                 null,
-                mutableListOf("odg1", "odg2", "odg3"),
+                null,
                 mutableListOf("odg1", "odg2"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE

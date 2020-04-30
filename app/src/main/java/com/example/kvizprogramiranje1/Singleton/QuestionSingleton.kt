@@ -18,7 +18,10 @@ object questionSingletonData {
 
     //Konstruktor za pitanja
     init {
-        val (questionsEasyData, questionNormalData, questionHardData) = allQuestions()
+            val all = allQuestions()
+            questionsEasyData = all.first.toMutableList()
+            questionsNormalData = all.second.toMutableList()
+            questionsHardData = all.third.toMutableList()
     }
 
     //Vracanje liste s podacima
@@ -66,12 +69,12 @@ object questionSingletonData {
     }
 
     //Vracanje izmijesane liste pitanja zavisno od tezine (Pocetak Kviza)
-    fun giveEasyQuiz(questionsNo: Int) {
+    fun giveEasyQuiz(questionsNo: Int): MutableList<Question?> {
         val questionList = getQuarterQuestions(questionsHardData, questionsNo) +
                 getQuarterQuestions(questionsNormalData, questionsNo) +
                 getHalfQuestions(questionsEasyData, questionsNo)
 
-        return questionList.toMutableList().shuffle()
+        return questionsEasyData
 
     }
     fun giveMediumQuiz(questionsNo: Int) {
