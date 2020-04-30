@@ -1,35 +1,78 @@
 package com.example.kvizprogramiranje1.screens.game
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.inflate
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentGameBinding
-import kotlinx.android.synthetic.*
 
 class GameFragment : Fragment() {
 
     private lateinit var viewModel: GameViewModel
     private lateinit var binding: FragmentGameBinding
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_game, container, false)
+        binding = inflate(inflater, R.layout.fragment_game, container, false)
         viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
 
         binding.submitBtn.setOnClickListener {onClickSubmit()}
+
+        //OnTouchListener za Izgled Dugmadi (Ne diraj)
+        binding.givupBtn.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent): Boolean {
+                when (event.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        binding.givupBtn.setBackgroundResource(R.drawable.ic_button_pressed_yellow)
+                        return true
+                    }
+                    MotionEvent.ACTION_UP -> {
+                        binding.givupBtn.setBackgroundResource(R.drawable.ic_button_image_yellow)
+                        binding.givupBtn.performClick()
+                        return true
+                    }
+                }
+                return false
+            }
+
+        })
+        binding.submitBtn.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent): Boolean {
+                when (event.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        binding.submitBtn.setBackgroundResource(R.drawable.ic_button_pressed_yellow)
+                        return true
+                    }
+                    MotionEvent.ACTION_UP -> {
+                        binding.submitBtn.setBackgroundResource(R.drawable.ic_button_image_yellow)
+                        binding.submitBtn.performClick()
+                        return true
+                    }
+                }
+                return false
+            }
+
+        })
+
+
+        /** Broj Pitanja iz Menu Fragmenta **/
+        val questionNumber = arguments?.getInt("questionNo") ?: 4
+        Log.d("BROJPITANJA", "BROJ U GAME FRAGMENTU: $questionNumber")
+
         updateWordText()
         updateScoreText()
         resetLayout()
         updateLayout()
         return binding.root
     }
-
 
     /** Methods for buttons presses **/
 

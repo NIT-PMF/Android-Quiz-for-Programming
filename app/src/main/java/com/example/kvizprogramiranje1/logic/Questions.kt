@@ -14,9 +14,9 @@ fun getRandomizedQuestion(questions: MutableList<Question>): Question {
 }
 //Procenti
 fun getQuarterQuestions(questions: MutableList<Question?>, questionNo: Int): List<Question?> {
-    return questions.take((questionNo * 0.25).toInt())
+    return questions.take((questionNo * 0.25).toInt()).shuffled()
 }
 
 fun getHalfQuestions(questions: MutableList<Question?>, questionNo: Int): List<Question?> {
-    return questions.take((questionNo * 0.50).toInt())
+    return questions.take((questionNo * 0.50).toInt()).shuffled()
 }

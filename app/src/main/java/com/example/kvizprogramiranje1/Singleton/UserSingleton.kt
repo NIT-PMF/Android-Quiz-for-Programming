@@ -21,6 +21,7 @@ object userSingletonData {
         )
     }
 
+
     //Vracanje liste s podacima
     fun getUserData(): MutableList<User?> {
         return userData
@@ -35,6 +36,10 @@ object userSingletonData {
     //Vracanje korisnika po ID-u
     fun getUserById(UserId: Number): User? {
         return userData.find { it?.id == UserId }
+    }
+
+    fun getUserByName(username: String): User? {
+        return userData.find {it?.username == username}
     }
 
     //Ukupan Broj Korisnika

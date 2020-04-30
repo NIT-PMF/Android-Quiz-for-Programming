@@ -6,8 +6,21 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="choose_difficulty">Choose Difficulty</string>
+    <string name="choose_difficulty">Choose Quiz Difficulty \n <font size="15">(Upon choosing, the game will start)</font></string>
     <string name="toast_username">Please Write Your Name</string>
     <string name="rules">Thank you for playing our IT quiz. Answering the question correctly grants you 10 pts. For each badly answered question you will lose 10 pts. There is a 60sec timer on each question, failing to answer in given time will skip the questin and you will lose the points. Going back will end the quiz completely. You have a once-in-a-quiz chance to call someone or text someone to help you answer the question. Try not to cheat :)</string>
     <string name="enter_game">Enter</string>
+    <string name="no_question">Choose Number of Questions</string>
+
+    <string-array name="questions_array">
+        <item>4</item>
+        <item>8</item>
+        <item>12</item>
+        <item>16</item>
+        <item>20</item>
+        <item>24</item>
+        <item>28</item>
+        <item>32</item>
+    </string-array>
+
 </resources>

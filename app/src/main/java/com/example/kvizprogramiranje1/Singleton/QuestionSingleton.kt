@@ -74,23 +74,23 @@ object questionSingletonData {
                 getQuarterQuestions(questionsNormalData, questionsNo) +
                 getHalfQuestions(questionsEasyData, questionsNo)
 
-        return questionsEasyData
+        return questionList.toMutableList()
 
     }
-    fun giveMediumQuiz(questionsNo: Int) {
+    fun giveMediumQuiz(questionsNo: Int): MutableList<Question?> {
         val questionList = getQuarterQuestions(questionsHardData, questionsNo) +
                 getHalfQuestions(questionsNormalData, questionsNo) +
                 getQuarterQuestions(questionsEasyData, questionsNo)
 
-        return questionList.toMutableList().shuffle()
+        return questionList.toMutableList()
 
     }
-    fun giveHardQuiz(questionsNo: Int) {
+    fun giveHardQuiz(questionsNo: Int): MutableList<Question?> {
         val questionList = getHalfQuestions(questionsHardData, questionsNo) +
                 getQuarterQuestions(questionsNormalData, questionsNo) +
                 getQuarterQuestions(questionsEasyData, questionsNo)
 
-        return questionList.toMutableList().shuffle()
+        return questionList.toMutableList()
     }
 
 }

@@ -24,7 +24,7 @@
             <ImageView
                 android:id="@+id/app_logo_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_marginTop="@dimen/margin_logo"
                 android:contentDescription="@string/app_logo_description"
                 app:srcCompat="@drawable/app_logo" />

@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
             if (checkUsername(username)) {
                 Log.i("MainActivity", userSingletonData.getUserData().toString())
                 val intent = Intent(this, MainQuizActivity::class.java)
+                intent.putExtra("username", username)
                 startActivity(intent)
             } else
                 showToast(applicationContext, getString(R.string.toast_username))
