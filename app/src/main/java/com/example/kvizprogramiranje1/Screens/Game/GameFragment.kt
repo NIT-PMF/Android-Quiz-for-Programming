@@ -1,6 +1,7 @@
 package com.example.kvizprogramiranje1.screens.game
 
 import android.annotation.SuppressLint
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,11 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil.inflate
 import androidx.lifecycle.ViewModelProvider
-import android.widget.Toast
-import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentGameBinding
@@ -47,6 +43,8 @@ class GameFragment : Fragment() {
                     MotionEvent.ACTION_UP -> {
                         binding.givupBtn.setBackgroundResource(R.drawable.ic_button_image_yellow)
                         binding.givupBtn.performClick()
+                        val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
+                        soundClick?.start()
                         return true
                     }
                 }
@@ -64,6 +62,8 @@ class GameFragment : Fragment() {
                     MotionEvent.ACTION_UP -> {
                         binding.submitBtn.setBackgroundResource(R.drawable.ic_button_image_yellow)
                         binding.submitBtn.performClick()
+                        val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
+                        soundClick?.start()
                         return true
                     }
                 }

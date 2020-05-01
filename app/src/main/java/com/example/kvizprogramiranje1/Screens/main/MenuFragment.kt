@@ -1,6 +1,7 @@
 package com.example.kvizprogramiranje1.screens.main
 
 import android.annotation.SuppressLint
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.*
 import android.widget.AdapterView
@@ -40,7 +41,8 @@ class MenuFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-
+                val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
+                soundClick?.start()
                 questionNumber = binding.noQuestionSpinner.selectedItem.toString().toInt()
             }
 
@@ -103,16 +105,20 @@ class MenuFragment : Fragment() {
         //OnClick Event
         binding.easyBtn.setOnClickListener { view: View ->
             val bundle = bundleOf(Pair("questionNo", questionNumber))
+            val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
+            soundClick?.start()
             view.findNavController().navigate(R.id.action_menuFragment_to_gameFragment2, bundle)
         }
         binding.normalBtn.setOnClickListener { view: View ->
             val bundle = bundleOf(Pair("questionNo", questionNumber))
-            binding.normalBtn.setBackgroundResource(R.drawable.ic_button_pressed_yellow)
+            val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
+            soundClick?.start()
             view.findNavController().navigate(R.id.action_menuFragment_to_gameFragment2, bundle)
         }
         binding.hardBtn.setOnClickListener { view: View ->
             val bundle = bundleOf(Pair("questionNo", questionNumber))
-            binding.hardBtn.setBackgroundResource(R.drawable.ic_button_pressed_yellow)
+            val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
+            soundClick?.start()
             view.findNavController().navigate(R.id.action_menuFragment_to_gameFragment2, bundle)
         }
 

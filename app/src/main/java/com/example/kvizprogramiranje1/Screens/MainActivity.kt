@@ -2,7 +2,12 @@ package com.example.kvizprogramiranje1.screens
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.AssetFileDescriptor
+import android.media.AudioAttributes
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.*
 import android.view.inputmethod.InputMethodManager
@@ -20,12 +25,19 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var rulesFragment: RulesFragment
+    private var player: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,
             R.layout.activity_main
         )
+        if (player == null) {
+            player = MediaPlayer.create(this, R.raw.classy_8_bit)
+            player?.isLooping = true
+            player?.setVolume(100f, 100f)
+        }
+        player?.start()
 
         hideKeyboard()
 
@@ -47,6 +59,16 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             } else
                 showToast(applicationContext, getString(R.string.toast_username))
+        }
+        val soundClick: MediaPlayer? = MediaPlayer.create(this, R.raw.click_sound)
+        soundClick?.start()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (player !== null) {
+            player!!.release()
+            player = null
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.kvizprogramiranje1.screens
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.ViewGroup
@@ -20,6 +21,8 @@ import kotlinx.android.synthetic.main.drawer_header.view.*
 
 class MainQuizActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
+    private var player: MediaPlayer? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +30,13 @@ class MainQuizActivity : AppCompatActivity() {
             this,
             R.layout.activity_main_quiz
         )
+
+        if (player == null) {
+            player = MediaPlayer.create(this, R.raw.insert_quarter)
+            player?.isLooping = true
+            player?.setVolume(100f, 100f)
+        }
+        player?.start()
 
         drawerLayout = binding.drawerLayoutMain
         val navController = this.findNavController(R.id.quizFragment)
@@ -60,4 +70,11 @@ class MainQuizActivity : AppCompatActivity() {
         return NavigationUI.navigateUp(navController, drawerLayout) || super.onSupportNavigateUp()
     }
 
+    override fun onStop() {
+        super.onStop()
+        if (player !== null) {
+            player!!.release()
+            player = null
+        }
+    }
 }
