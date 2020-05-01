@@ -140,7 +140,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
                 "hmmm?4",
                 null,
                 mutableListOf("odg1", "odg2", "odg3"),
-                mutableListOf("odg1", "odg2"),
+                mutableListOf("odg1"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),

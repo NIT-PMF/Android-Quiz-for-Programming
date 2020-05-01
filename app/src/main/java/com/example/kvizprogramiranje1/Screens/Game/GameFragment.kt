@@ -10,6 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil.inflate
 import androidx.lifecycle.ViewModelProvider
+import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentGameBinding
@@ -18,6 +23,11 @@ class GameFragment : Fragment() {
 
     private lateinit var viewModel: GameViewModel
     private lateinit var binding: FragmentGameBinding
+    private var CLICK_A = 0
+    private var CLICK_B = 0
+    private var CLICK_C = 0
+    private var CLICK_D = 0
+
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -26,7 +36,7 @@ class GameFragment : Fragment() {
 
         binding.submitBtn.setOnClickListener {onClickSubmit()}
 
-        //OnTouchListener za Izgled Dugmadi (Ne diraj)
+  //OnTouchListener za Izgled Dugmadi (Ne diraj)
         binding.givupBtn.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent): Boolean {
                 when (event.action) {
@@ -67,27 +77,81 @@ class GameFragment : Fragment() {
         val questionNumber = arguments?.getInt("questionNo") ?: 4
         Log.d("BROJPITANJA", "BROJ U GAME FRAGMENTU: $questionNumber")
 
-        updateWordText()
+        binding.answerABtn.setOnClickListener{onClickA()}
+        binding.answerBBtn.setOnClickListener{onClickB()}
+        binding.answerCBtn.setOnClickListener{onClickC()}
+        binding.answerDBtn.setOnClickListener{onClickD()}
+
+        updateQuestionText()
         updateScoreText()
         resetLayout()
         updateLayout()
+
         return binding.root
     }
 
-    /** Methods for buttons presses **/
 
-    private fun onSkip() {
-        viewModel.onSkip()
-        updateWordText()
-        updateScoreText()
+    private fun onClickA(){
+        CLICK_A++
+        if(CLICK_A == 2){
+            CLICK_A = 0
+            binding.radioGroupA.clearCheck()
+        }
     }
+    private fun onClickB(){
+        CLICK_B++
+        if(CLICK_B == 2){
+            CLICK_B = 0
+            binding.radioGroupB.clearCheck()
+        }
+    }
+    private fun onClickC(){
+        CLICK_C++
+        if(CLICK_C == 2){
+            CLICK_C = 0
+            binding.radioGroupC.clearCheck()
+        }
+    }
+    private fun onClickD(){
+        CLICK_D++
+        if(CLICK_D == 2){
+            CLICK_D = 0
+            binding.radioGroupD.clearCheck()
+        }
+    }
+
+
     private fun onClickSubmit() {
-        viewModel.onSkip()
+        viewModel.onCheckAnswers(sendAnswers())
         updateScoreText()
-        updateWordText()
+        updateQuestionText()
         resetLayout()
         updateLayout()
     }
+
+    private fun sendAnswers(): ArrayList<String>{
+        val answers = arrayListOf<String>()
+        if (binding.answerABtn.isChecked) {
+            answers.add(binding.answerABtn.text as String)
+        }
+        if(binding.answerBBtn.isChecked){
+            answers.add(binding.answerABtn.text as String)
+        }
+        if(binding.answerCBtn.isChecked){
+            answers.add(binding.answerCBtn.text as String)
+        }
+        if(binding.answerDBtn.isChecked){
+            answers.add(binding.answerDBtn.text as String)
+        }
+
+        if(binding.answerText.visibility == View.VISIBLE){
+            val text: String = binding.answerText.text.toString()
+            answers.add(text)
+        }
+        return answers
+
+    }
+
 
     private fun updateLayout(){
         if(viewModel.question?.isImageQuestion!!){
@@ -142,7 +206,6 @@ class GameFragment : Fragment() {
     private fun updateTextInput(){
         binding.answerText.visibility = View.VISIBLE
     }
-    /** Methods for updating the UI **/
 
     private fun resetLayout(){
         binding.answerText.visibility = View.INVISIBLE
@@ -150,10 +213,17 @@ class GameFragment : Fragment() {
         binding.answerBBtn.visibility = View.INVISIBLE
         binding.answerCBtn.visibility = View.INVISIBLE
         binding.answerDBtn.visibility = View.INVISIBLE
+
+        binding.radioGroupA.clearCheck()
+        binding.radioGroupB.clearCheck()
+        binding.radioGroupC.clearCheck()
+        binding.radioGroupD.clearCheck()
+
         binding.imageView.visibility = View.INVISIBLE
+
     }
 
-    private fun updateWordText() {
+    private fun updateQuestionText() {
         binding.questionText.text = viewModel.question?.questionText.toString()
 
 
@@ -161,5 +231,10 @@ class GameFragment : Fragment() {
 
     private fun updateScoreText() {
         binding.scoreText.text = score.toString()
+    }
+
+    //Treba implementirati
+    private fun gameFinished() {
+
     }
 }

@@ -17,11 +17,16 @@
         android:id="@+id/gameFragment"
         android:name="com.example.kvizprogramiranje1.screens.game.GameFragment"
         android:label="GameFragment"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_score_fragment"
+            app:destination="@id/score_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/rulesFragment"
         android:name="com.example.kvizprogramiranje1.screens.main.RulesFragment"
-        android:label="RulesFragment" />
+        android:label="RulesFragment"
+        tools:layout="@layout/fragment_rules"/>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.kvizprogramiranje1.screens.main.AboutFragment"
@@ -30,5 +35,11 @@
         <action
             android:id="@+id/action_gameFragment_self"
             app:destination="@id/gameFragment" />
+
+    <fragment
+        android:id="@+id/score_fragment"
+        android:name="com.example.kvizprogramiranje1.screens.score.ScoreFragment"
+        android:label="ScoreFragment"
+        tools:layout="@layout/score_fragment" />
 </navigation>
 
