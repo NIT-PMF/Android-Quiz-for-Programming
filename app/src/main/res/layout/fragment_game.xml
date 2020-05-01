@@ -7,54 +7,47 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_vertical"
         android:orientation="vertical">
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="110dp" />
+            android:layout_height="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="329dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="22dp"
-                android:orientation="horizontal">
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="4dp">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/current_score_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Your Corent score: " />
+                    android:text="@string/your_corent_score"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/score_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="0"
+                    android:textStyle="bold" />
 
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="106dp"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:gravity="center"
                 android:orientation="horizontal">
-
-                <Space
-                    android:layout_width="41dp"
-                    android:layout_height="66dp"
-                    android:layout_weight="1" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="320dp"
@@ -65,49 +58,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
+                        android:gravity="center"
                         tools:layout_editor_absoluteX="91dp"
                         tools:layout_editor_absoluteY="0dp">
 
-                        <Space
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
 
                         <TextView
                             android:id="@+id/question_text"
                             style="@style/quiz_header"
-                            android:layout_width="273dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:padding="8dp"
-                            android:text="TextView"
+                            android:text="@string/question"
                             android:textColor="@color/colorAccent"
 
                             android:textStyle="bold" />
-
-                        <Space
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
                     </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <Space
-                    android:layout_width="41dp"
-                    android:layout_height="61dp"
-                    android:layout_weight="1" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:orientation="horizontal">
-
-                <Space
-                    android:layout_width="41dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
 
                 <EditText
                     android:id="@+id/answer_text"
@@ -115,31 +91,36 @@
                     android:layout_height="40dp"
                     android:background="@drawable/rectangle"
                     android:ems="10"
+                    android:hint=">"
                     android:inputType="textPersonName"
+                    android:padding="6dp"
                     android:shadowColor="#E91E63"
-                    android:text="Answer..."
-                    android:textColor="@color/colorAccent"
+                    android:textColor="#FFB6C1"
+                    android:textColorHint="@color/colorAccent"
+                    android:textCursorDrawable="@drawable/text_cursor_cmd"
                     android:visibility="invisible" />
 
-                <Space
-                    android:layout_width="41dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
-                <Space
-                    android:layout_width="41dp"
+                <ImageView
+                    android:id="@+id/image_view"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:padding="4dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/app_logo"
+                    android:visibility="invisible" />
 
                 <LinearLayout
-                    android:layout_width="150dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="6dp"
                     android:orientation="vertical">
 
                     <RadioGroup
@@ -151,8 +132,12 @@
                             android:id="@+id/answerA_btn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/colorPrimaryDark"
                             android:buttonTint="#FFC107"
-                            android:text="RadioButton"
+                            android:fontFamily="@font/vt323"
+                            android:text="Answer1"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="18sp"
                             android:visibility="invisible" />
                     </RadioGroup>
 
@@ -165,8 +150,12 @@
                             android:id="@+id/answerB_btn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/colorPrimaryDark"
                             android:buttonTint="#FFC107"
-                            android:text="RadioButton"
+                            android:fontFamily="@font/vt323"
+                            android:text="Answer2"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="18sp"
                             android:visibility="invisible" />
                     </RadioGroup>
 
@@ -179,8 +168,12 @@
                             android:id="@+id/answerC_btn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/colorPrimaryDark"
                             android:buttonTint="#FFC107"
-                            android:text="RadioButton"
+                            android:fontFamily="@font/vt323"
+                            android:text="Answer3"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="18sp"
                             android:visibility="invisible" />
                     </RadioGroup>
 
@@ -194,25 +187,16 @@
                             android:id="@+id/answerD_btn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/colorPrimaryDark"
                             android:buttonTint="#FFC107"
-                            android:text="RadioButton"
+                            android:fontFamily="@font/vt323"
+                            android:text="Answer4"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="18sp"
                             android:visibility="invisible" />
 
                     </RadioGroup>
                 </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/image_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/app_logo"
-                    android:visibility="invisible" />
-
-                <Space
-                    android:layout_width="41dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
 
             </LinearLayout>
 
@@ -220,7 +204,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="119dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:orientation="horizontal">
 
             <Space
@@ -234,7 +219,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Give up" />
+                android:text="@string/give_up" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -247,7 +232,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="submit" />
+                android:text="@string/submit" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -255,10 +240,6 @@
                 android:layout_weight="1" />
 
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="186dp" />
 
     </LinearLayout>
 </layout>

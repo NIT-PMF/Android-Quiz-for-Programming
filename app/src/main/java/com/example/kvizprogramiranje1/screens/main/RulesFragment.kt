@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentRulesBinding
+import com.example.kvizprogramiranje1.screens.MainQuizActivity
 
 class RulesFragment : Fragment() {
 
@@ -27,6 +28,7 @@ class RulesFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_rules, container, false)
 
+        (activity as MainQuizActivity).supportActionBar?.title = "Game Rules"
         return binding.root
     }
 

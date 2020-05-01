@@ -4,5 +4,9 @@
 
     <item
         android:id="@+id/aboutFragment"
-        android:title="About" />
+        android:title="@string/about_page_tile" />
+
+    <item
+        android:id="@+id/changeLanguage"
+        android:title="@string/change_language_to_ba" />
 </menu>

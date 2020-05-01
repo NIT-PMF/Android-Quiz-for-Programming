@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kviz za Programiranje 1</string>
+    <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Upišite vaš Username:</string>
+    <string name="app_logo_description">Logo Aplikacije</string>
+    <string name="done">Gotovo</string>
+    <string name="hello_blank_fragment">Pozdrav</string>
+    <string name="choose_difficulty">Izaberite Težinu Kviza  <font size="15">(Poslije odabira, kviz počinje)</font></string>
+    <string name="toast_username">Upišite Vaše Ime</string>
+    <string name="rules">Hvala na pokretanju naše male igrice ITQuiz.\nPrilikom odgovaranja na pitanja dobijate određeni dio bodova. Za svako loše osgovoreno pitanje gubite bodove. Imate ograničenu količinu vremena inače gubite bodove.  Izlaženjem iz kviza vaši bodovi se vraćaju na 0.  Prilikom odgovaranja imate jednom-u-igri opciju da nazovete nekoga ili pošaljete poruku.\nNemojte varati :)</string>
+    <string name="enter_game">Uđite</string>
+    <string name="no_question">Izaberite Broj Pitanja</string>
+    <string name="about_page_tile">O Nama</string>
+    <string name="about_page_main">Pilići i koka  Pi pi pi pi pi pi pi Mama koko, gdje si ti? Ko ko ko ko ko ko da Evo djeco, tu sam ja.   Pi pi pi pi pi pi pi Gladni smo ti mama mi.  Ko ko ko ko ko ko da Meni zrno, vama dva.</string>
+    <string name="about_page_author">Igru Pravili: Irhad Fejzic, Tarik Selimovic</string>
+    <string name="your_corent_score">Vaši Trenutni Bodovi:</string>
+    <string name="question">Pitanje</string>
+    <string name="give_up">Odustani</string>
+    <string name="submit">Potvrdi</string>
+    <string name="hard">Teško</string>
+    <string name="normal">Normalno</string>
+    <string name="easy">Lagano</string>
+    <string name="change_language_to_ba">Promijenite Jezik na EN</string>
+    <string name="rules_title">Pravila</string>
+</resources>

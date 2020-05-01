@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentAboutBinding
+import com.example.kvizprogramiranje1.screens.MainQuizActivity
 
 class AboutFragment : Fragment() {
 
@@ -26,6 +27,8 @@ class AboutFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_about, container, false)
+
+        (activity as MainQuizActivity).supportActionBar?.title = "About Us"
 
         return binding.root
     }

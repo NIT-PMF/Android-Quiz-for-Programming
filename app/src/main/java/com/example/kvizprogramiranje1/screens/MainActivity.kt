@@ -8,11 +8,13 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Html
 import android.util.Log
 import android.view.*
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil.setContentView
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.ActivityMainBinding
 import com.example.kvizprogramiranje1.logic.checkUsername
@@ -29,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,
+        binding = setContentView(this,
             R.layout.activity_main
         )
         if (player == null) {
@@ -39,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         }
         player?.start()
 
+        supportActionBar?.title = "ITQuiz Mini Game"
+        supportActionBar?.subtitle = "By NIT"
         hideKeyboard()
 
         rulesFragment = RulesFragment()

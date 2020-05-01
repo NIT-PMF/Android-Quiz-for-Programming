@@ -14,6 +14,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentMenuBinding
+import com.example.kvizprogramiranje1.screens.MainQuizActivity
 
 
 class MenuFragment : Fragment() {
@@ -30,6 +31,8 @@ class MenuFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_menu, container, false)
         spinner = binding.noQuestionSpinner
+
+        (activity as MainQuizActivity).supportActionBar?.title = "Game Menu"
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {

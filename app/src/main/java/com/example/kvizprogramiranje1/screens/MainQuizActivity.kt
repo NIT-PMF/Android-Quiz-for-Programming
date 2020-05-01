@@ -1,23 +1,20 @@
 package com.example.kvizprogramiranje1.screens
 
+import android.content.res.Configuration
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.MenuItem
-import android.view.ViewGroup
-import android.widget.Button
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.children
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.ActivityMainQuizBinding
-import com.example.kvizprogramiranje1.logic.showToast
-import com.example.kvizprogramiranje1.screens.game.GameViewModel
 import com.example.kvizprogramiranje1.singleton.userSingletonData
 import kotlinx.android.synthetic.main.drawer_header.view.*
+import java.util.*
 
 class MainQuizActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
@@ -67,7 +64,24 @@ class MainQuizActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.quizFragment)
-        return NavigationUI.navigateUp(navController, drawerLayout) || super.onSupportNavigateUp()
+        return when(navController.currentDestination?.id) {
+            R.id.changeLanguage -> {
+                Log.d("LANGUAGE", "USAO")
+                val config = resources.configuration
+                val locale = when (Locale.getDefault().displayLanguage) {
+                    "en" -> Locale("bs-rBA")
+                    else -> Locale("en")
+                }
+                Locale.setDefault(locale)
+                config.setLocale(locale)
+                //resources.updateConfiguration(config, resources.displayMetrics)
+                val configuration: Configuration = applicationContext.getResources().getConfiguration()
+                configuration.setLocale(locale)
+                configuration.setLayoutDirection(locale)
+                true
+            }
+            else -> NavigationUI.navigateUp(navController, drawerLayout) || super.onSupportNavigateUp()
+        }
     }
 
     override fun onStop() {

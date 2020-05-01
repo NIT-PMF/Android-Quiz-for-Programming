@@ -1,16 +1,25 @@
 <resources>
-    <string name="app_name">Kviz za Programiranje 1</string>
-    <string name="type_your_username"><font color="#FFB6C1">C:\\\ITQuiz\\\</font>Type_Your_Username:</string>
+    <string name="app_name">"Programming 1 Quiz "</string>
+    <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Type_Your_Username:</string>
     <string name="app_logo_description">App Logo</string>
     <string name="done">Done</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="choose_difficulty">Choose Quiz Difficulty \n <font size="15">(Upon choosing, the game will start)</font></string>
     <string name="toast_username">Please Write Your Name</string>
     <string name="rules">Thank you for playing our IT quiz. \nAnswering the question correctly grants you 10 pts. For each badly answered question you will lose 10 pts. There is a 60sec timer on each question, failing to answer in given time will skip the questin and you will lose the points. Going back will end the quiz completely. You have a once-in-a-quiz chance to call someone or text someone to help you answer the question. \nTry not to cheat :)</string>
     <string name="enter_game">Enter</string>
     <string name="no_question">Choose Number of Questions</string>
+    <string name="about_page_tile">About</string>
+    <string name="about_page_main">Let no one deceive you by any means; for that day will not come unless the falling away comes first, and the man of sin is revealed, the son of perdition, who opposes and exalts himself above all that is called God or that is worshipped, so that he sits as God in the temple of God, showing himself that he is God.</string>
+    <string name="about_page_author">By Irhad Fejzic, Tarik Selimovic</string>
+    <string name="your_corent_score">Your Current score:</string>
+    <string name="question">Question</string>
+    <string name="give_up">Give up</string>
+    <string name="submit">submit</string>
+    <string name="hard">Hard</string>
+    <string name="normal">Normal</string>
+    <string name="easy">Easy</string>
 
     <string-array name="questions_array">
         <item>4</item>
@@ -22,5 +31,8 @@
         <item>28</item>
         <item>32</item>
     </string-array>
+    <string name="choose_difficulty">Choose Quiz Difficulty   \n<font size="15">(Upon choosing, the game will start)</font></string>
+    <string name="change_language_to_ba">Change Language To BA</string>
+    <string name="rules_title">Rules</string>
 
 </resources>

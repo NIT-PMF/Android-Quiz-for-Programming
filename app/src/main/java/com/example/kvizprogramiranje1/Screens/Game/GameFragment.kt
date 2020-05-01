@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentGameBinding
+import com.example.kvizprogramiranje1.screens.MainQuizActivity
 
 
 class GameFragment : Fragment() {
@@ -21,6 +22,7 @@ class GameFragment : Fragment() {
     private lateinit var viewModel: GameViewModel
     private lateinit var viewModelFactory: GameViewModelFactory
     private lateinit var binding: FragmentGameBinding
+    private var numbQuestion = 4
     private var CLICK_A = 0
     private var CLICK_B = 0
     private var CLICK_C = 0
@@ -28,17 +30,21 @@ class GameFragment : Fragment() {
 
 
     @SuppressLint("ClickableViewAccessibility")
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = inflate(inflater, R.layout.fragment_game, container, false)
 
-        val numofQuestion = arguments?.getInt("questionNo") ?: 4
-        val modeOfGame = arguments?.getInt("mode") ?: 4
-        viewModelFactory = GameViewModelFactory(numofQuestion, modeOfGame)
+        numbQuestion = arguments?.getInt("questionNo") ?: 4
+        val gameDifficulty = arguments?.getInt("mode") ?: 1
+        viewModelFactory = GameViewModelFactory(numbQuestion, gameDifficulty)
         viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(GameViewModel::class.java)
 
-        binding.submitBtn.setOnClickListener {onClickSubmit()}
-        binding.givupBtn.setOnClickListener { view: View -> endGame(view)}
+        binding.submitBtn.setOnClickListener { onClickSubmit() }
+        binding.givupBtn.setOnClickListener { view: View -> endGame(view) }
 
 
         //OnTouchListener za Izgled Dugmadi (Ne diraj)
@@ -52,7 +58,8 @@ class GameFragment : Fragment() {
                     MotionEvent.ACTION_UP -> {
                         binding.givupBtn.setBackgroundResource(R.drawable.ic_button_image_yellow)
                         binding.givupBtn.performClick()
-                        val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
+                        val soundClick: MediaPlayer? =
+                            MediaPlayer.create(context, R.raw.click_sound)
                         soundClick?.start()
                         return true
                     }
@@ -71,7 +78,8 @@ class GameFragment : Fragment() {
                     MotionEvent.ACTION_UP -> {
                         binding.submitBtn.setBackgroundResource(R.drawable.ic_button_image_yellow)
                         binding.submitBtn.performClick()
-                        val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
+                        val soundClick: MediaPlayer? =
+                            MediaPlayer.create(context, R.raw.click_sound)
                         soundClick?.start()
                         return true
                     }
@@ -82,10 +90,10 @@ class GameFragment : Fragment() {
         })
 
 
-        binding.answerABtn.setOnClickListener{onClickA()}
-        binding.answerBBtn.setOnClickListener{onClickB()}
-        binding.answerCBtn.setOnClickListener{onClickC()}
-        binding.answerDBtn.setOnClickListener{onClickD()}
+        binding.answerABtn.setOnClickListener { onClickA() }
+        binding.answerBBtn.setOnClickListener { onClickB() }
+        binding.answerCBtn.setOnClickListener { onClickC() }
+        binding.answerDBtn.setOnClickListener { onClickD() }
 
 
         updateQuestionText()
@@ -97,40 +105,42 @@ class GameFragment : Fragment() {
     }
 
 
-    private fun onClickA(){
+    private fun onClickA() {
         CLICK_A++
-        if(CLICK_A == 2){
+        if (CLICK_A == 2) {
             CLICK_A = 0
             binding.radioGroupA.clearCheck()
         }
     }
-    private fun onClickB(){
+
+    private fun onClickB() {
         CLICK_B++
-        if(CLICK_B == 2){
+        if (CLICK_B == 2) {
             CLICK_B = 0
             binding.radioGroupB.clearCheck()
         }
     }
-    private fun onClickC(){
+
+    private fun onClickC() {
         CLICK_C++
-        if(CLICK_C == 2){
+        if (CLICK_C == 2) {
             CLICK_C = 0
             binding.radioGroupC.clearCheck()
         }
     }
-    private fun onClickD(){
+
+    private fun onClickD() {
         CLICK_D++
-        if(CLICK_D == 2){
+        if (CLICK_D == 2) {
             CLICK_D = 0
             binding.radioGroupD.clearCheck()
         }
     }
 
 
-
     private fun onClickSubmit() {
         viewModel.onCheckAnswers(sendAnswers())
-        if(gameFinished()){
+        if (gameFinished()) {
             endGame(binding.root)
         }
         updateScoreText()
@@ -139,22 +149,22 @@ class GameFragment : Fragment() {
         updateLayout()
     }
 
-    private fun sendAnswers(): ArrayList<String>{
+    private fun sendAnswers(): ArrayList<String> {
         val answers = arrayListOf<String>()
         if (binding.answerABtn.isChecked) {
             answers.add(binding.answerABtn.text as String)
         }
-        if(binding.answerBBtn.isChecked){
+        if (binding.answerBBtn.isChecked) {
             answers.add(binding.answerABtn.text as String)
         }
-        if(binding.answerCBtn.isChecked){
+        if (binding.answerCBtn.isChecked) {
             answers.add(binding.answerCBtn.text as String)
         }
-        if(binding.answerDBtn.isChecked){
+        if (binding.answerDBtn.isChecked) {
             answers.add(binding.answerDBtn.text as String)
         }
 
-        if(binding.answerText.visibility == View.VISIBLE){
+        if (binding.answerText.visibility == View.VISIBLE) {
             val text: String = binding.answerText.text.toString()
             answers.add(text)
         }
@@ -163,36 +173,37 @@ class GameFragment : Fragment() {
     }
 
 
-    private fun updateLayout(){
-        if(viewModel.question?.isImageQuestion!!){
+    private fun updateLayout() {
+        if (viewModel.question?.isImageQuestion!!) {
             updateImageLayout()
         }
-        if(viewModel.question?.possibleAnswers != null){
+        if (viewModel.question?.possibleAnswers != null) {
             updateMultipleChoice()
-        }else{
+        } else {
             updateTextInput()
         }
+        (activity as MainQuizActivity).supportActionBar?.title = "Question Number: ${numbQuestion - viewModel.questionRemain()}"
     }
 
-    private fun updateImageLayout(){
-       // val ims: InputStream = binding.root.context.assets.open("easy2.png")
-       // val d = Drawable.createFromStream(ims, null)
-       // binding.imageView.setImageDrawable(d)
+    private fun updateImageLayout() {
+        // val ims: InputStream = binding.root.context.assets.open("easy2.png")
+        // val d = Drawable.createFromStream(ims, null)
+        // binding.imageView.setImageDrawable(d)
         binding.imageView.visibility = View.VISIBLE
-        if(viewModel.question?.possibleAnswers != null){
+        if (viewModel.question?.possibleAnswers != null) {
             updateMultipleChoice()
         }
     }
 
-    private fun  updateMultipleChoice(){
-        if(viewModel.question?.possibleAnswers?.size == 2){
+    private fun updateMultipleChoice() {
+        if (viewModel.question?.possibleAnswers?.size == 2) {
             binding.answerABtn.visibility = View.VISIBLE
             binding.answerBBtn.visibility = View.VISIBLE
 
             binding.answerABtn.text = viewModel.question?.possibleAnswers?.elementAt(0)
             binding.answerBBtn.text = viewModel.question?.possibleAnswers?.elementAt(1)
 
-        }else if(viewModel.question?.possibleAnswers?.size == 3){
+        } else if (viewModel.question?.possibleAnswers?.size == 3) {
             binding.answerABtn.visibility = View.VISIBLE
             binding.answerBBtn.visibility = View.VISIBLE
             binding.answerCBtn.visibility = View.VISIBLE
@@ -201,7 +212,7 @@ class GameFragment : Fragment() {
             binding.answerBBtn.text = viewModel.question?.possibleAnswers?.elementAt(1)
             binding.answerCBtn.text = viewModel.question?.possibleAnswers?.elementAt(2)
 
-        }else if(viewModel.question?.possibleAnswers?.size == 4){
+        } else if (viewModel.question?.possibleAnswers?.size == 4) {
             binding.answerABtn.visibility = View.VISIBLE
             binding.answerBBtn.visibility = View.VISIBLE
             binding.answerCBtn.visibility = View.VISIBLE
@@ -216,12 +227,12 @@ class GameFragment : Fragment() {
         }
     }
 
-    private fun updateTextInput(){
+    private fun updateTextInput() {
         binding.answerText.visibility = View.VISIBLE
     }
 
-    private fun resetLayout(){
-        binding.answerText.visibility = View.INVISIBLE
+    private fun resetLayout() {
+        binding.answerText.visibility = View.GONE
         binding.answerABtn.visibility = View.INVISIBLE
         binding.answerBBtn.visibility = View.INVISIBLE
         binding.answerCBtn.visibility = View.INVISIBLE
@@ -248,13 +259,13 @@ class GameFragment : Fragment() {
 
     //Treba implementirati
     private fun gameFinished(): Boolean {
-        if(viewModel.questionsList.isEmpty()) {
+        if (viewModel.questionsList.isEmpty()) {
             return true
         }
         return false
     }
 
-    private fun endGame(view: View){
+    private fun endGame(view: View) {
         val bundle = bundleOf(Pair("score", score))
         view.findNavController().navigate(R.id.action_gameFragment_to_score_fragment, bundle)
     }
