@@ -104,21 +104,23 @@ class MenuFragment : Fragment() {
 
         //OnClick Event
         binding.easyBtn.setOnClickListener { view: View ->
-            val bundle = bundleOf(Pair("questionNo", questionNumber))
+            val bundle = bundleOf(Pair("questionNo", questionNumber), Pair("mode", 1))
             val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
             soundClick?.start()
             view.findNavController().navigate(R.id.action_menuFragment_to_gameFragment2, bundle)
         }
         binding.normalBtn.setOnClickListener { view: View ->
-            val bundle = bundleOf(Pair("questionNo", questionNumber))
+            val bundle = bundleOf(Pair("questionNo", questionNumber), Pair("mode", 2))
             val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
             soundClick?.start()
             view.findNavController().navigate(R.id.action_menuFragment_to_gameFragment2, bundle)
         }
+
         binding.hardBtn.setOnClickListener { view: View ->
-            val bundle = bundleOf(Pair("questionNo", questionNumber))
+            val bundle = bundleOf(Pair("questionNo", questionNumber),  Pair("mode", 3))
             val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
             soundClick?.start()
+            binding.hardBtn.setBackgroundResource(R.drawable.ic_button_pressed_yellow)
             view.findNavController().navigate(R.id.action_menuFragment_to_gameFragment2, bundle)
         }
 

@@ -26,7 +26,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    apply plugin: 'kotlin-kapt'
+    apply plugin: 'kotlin-android'
+
 }
 
 dependencies {

@@ -13,14 +13,14 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
     hardQuestionList.addAll(
         mutableListOf(
             Question(
-            21,
-            "What is the output of the following code?",
-            "hard2.png",
-            mutableListOf("i is 5 isPrime is True", " i is 5 isPrime is False", "i is 6 isPrime is True", "i is 6 isPrime is False"),
-            mutableListOf("i is 5 isPrime is False"),
-            true,
-            questionSingletonData.QUESTION_SINGLE_CHOICE
-        ),
+                21,
+                "What is the output of the following code?",
+                "hard2.png",
+                mutableListOf("i is 5 isPrime is True", " i is 5 isPrime is False", "i is 6 isPrime is True", "i is 6 isPrime is False"),
+                mutableListOf("i is 5 isPrime is False"),
+                true,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
             Question(
                 22,
                 "Suppose we have two sets A & B, then A<B is?",
@@ -102,7 +102,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
                 false,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
             )
-    )
+        )
     )
     mediumQuestionList.addAll(
         mutableListOf(

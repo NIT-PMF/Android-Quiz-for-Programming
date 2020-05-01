@@ -1,4 +1,4 @@
-package com.example.kvizprogramiranje1.Screens.score
+package com.example.kvizprogramiranje1.screens.score
 
 import androidx.lifecycle.ViewModel
 

@@ -8,18 +8,36 @@ import com.example.kvizprogramiranje1.singleton.questionSingletonData.giveEasyQu
 
 
 // The current score
+
 var score = 0
 
-class GameViewModel : ViewModel() {
+class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
 
-    private var questionNumber = 4
 
     var question: Question? = null
 
     var questionsList:MutableList<Question?>
 
+    var points : Int
+    var penaltyPoints: Int
+
     init {
-        questionsList = questionSingletonData.giveEasyQuiz(questionNumber)
+
+
+        if(mode == 1){
+            questionsList = questionSingletonData.giveEasyQuiz(questionNumber)
+            points = 10
+            penaltyPoints = 5
+        }else if(mode == 2){
+            questionsList = questionSingletonData.giveMediumQuiz(questionNumber)
+            points = 12
+            penaltyPoints = 4
+        }else{
+            questionsList = questionSingletonData.giveHardQuiz(questionNumber)
+            points = 20
+            penaltyPoints = 10
+        }
+        score = 0
         nextQuestion()
     }
 
@@ -36,16 +54,16 @@ class GameViewModel : ViewModel() {
     fun onCheckAnswers(answers : ArrayList<String>) {
         if(question?.possibleAnswers == null) {
             if(question!!.correctAnswers!!.contains(answers[0])) {
-                score += 10
+                score += points
             }else{
-                score -= 5
+                score -= penaltyPoints
             }
         }else{
             for(answer in answers){
                 if(question!!.correctAnswers!!.contains(answer)){
-                    score += 10
+                    score += points
                 }else{
-                    score -=10
+                    score -= penaltyPoints
                 }
             }
         }

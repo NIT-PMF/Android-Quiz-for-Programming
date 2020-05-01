@@ -11,57 +11,136 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="76dp" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/app_logo" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="47dp" />
+            android:layout_height="110dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_height="329dp"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/score_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/question_text"
-                android:layout_width="match_parent"
-                android:layout_height="53dp"
-                android:text="TextView" />
-
-            <EditText
-                android:id="@+id/answer_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:visibility="invisible"
-                android:inputType="textPersonName"
-                android:text="Name" />
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your Corent score: " />
+
+                <TextView
+                    android:id="@+id/score_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="106dp"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="41dp"
+                    android:layout_height="66dp"
+                    android:layout_weight="1" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="320dp"
+                    android:layout_height="106dp"
+                    android:background="@drawable/rectangle">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        tools:layout_editor_absoluteX="91dp"
+                        tools:layout_editor_absoluteY="0dp">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/question_text"
+                            style="@style/quiz_header"
+                            android:layout_width="273dp"
+                            android:layout_height="match_parent"
+                            android:padding="8dp"
+                            android:text="TextView"
+                            android:textColor="@color/colorAccent"
+
+                            android:textStyle="bold" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Space
+                    android:layout_width="41dp"
+                    android:layout_height="61dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="41dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/answer_text"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rectangle"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:shadowColor="#E91E63"
+                    android:text="Answer..."
+                    android:textColor="@color/colorAccent"
+                    android:visibility="invisible" />
+
+                <Space
+                    android:layout_width="41dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <Space
+                    android:layout_width="41dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
                 <LinearLayout
-                    android:layout_width="203dp"
+                    android:layout_width="150dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <RadioGroup
                         android:id="@+id/radio_groupA"
@@ -72,6 +151,7 @@
                             android:id="@+id/answerA_btn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="#FFC107"
                             android:text="RadioButton"
                             android:visibility="invisible" />
                     </RadioGroup>
@@ -85,6 +165,7 @@
                             android:id="@+id/answerB_btn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="#FFC107"
                             android:text="RadioButton"
                             android:visibility="invisible" />
                     </RadioGroup>
@@ -98,6 +179,7 @@
                             android:id="@+id/answerC_btn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="#FFC107"
                             android:text="RadioButton"
                             android:visibility="invisible" />
                     </RadioGroup>
@@ -112,6 +194,7 @@
                             android:id="@+id/answerD_btn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="#FFC107"
                             android:text="RadioButton"
                             android:visibility="invisible" />
 
@@ -123,8 +206,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:visibility="invisible"
-                    android:src="@drawable/app_logo" />
+                    android:src="@drawable/app_logo"
+                    android:visibility="invisible" />
+
+                <Space
+                    android:layout_width="41dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -134,6 +223,11 @@
             android:layout_height="119dp"
             android:orientation="horizontal">
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
             <Button
                 android:id="@+id/givup_btn"
                 style="@style/yellow_button_style"
@@ -141,6 +235,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Give up" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/submit_btn"
@@ -150,11 +249,16 @@
                 android:layout_weight="1"
                 android:text="submit" />
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="98dp" />
+            android:layout_height="186dp" />
 
     </LinearLayout>
 </layout>

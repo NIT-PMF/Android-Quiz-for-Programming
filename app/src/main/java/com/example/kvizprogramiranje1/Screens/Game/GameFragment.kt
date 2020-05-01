@@ -3,21 +3,23 @@ package com.example.kvizprogramiranje1.screens.game
 import android.annotation.SuppressLint
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil.inflate
-import androidx.lifecycle.ViewModelProvider
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentGameBinding
+
 
 class GameFragment : Fragment() {
 
     private lateinit var viewModel: GameViewModel
+    private lateinit var viewModelFactory: GameViewModelFactory
     private lateinit var binding: FragmentGameBinding
     private var CLICK_A = 0
     private var CLICK_B = 0
@@ -28,11 +30,18 @@ class GameFragment : Fragment() {
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = inflate(inflater, R.layout.fragment_game, container, false)
-        viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
+
+        val numofQuestion = arguments?.getInt("questionNo") ?: 4
+        val modeOfGame = arguments?.getInt("mode") ?: 4
+        viewModelFactory = GameViewModelFactory(numofQuestion, modeOfGame)
+        viewModel = ViewModelProviders.of(this, viewModelFactory)
+            .get(GameViewModel::class.java)
 
         binding.submitBtn.setOnClickListener {onClickSubmit()}
+        binding.givupBtn.setOnClickListener { view: View -> endGame(view)}
 
-  //OnTouchListener za Izgled Dugmadi (Ne diraj)
+
+        //OnTouchListener za Izgled Dugmadi (Ne diraj)
         binding.givupBtn.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent): Boolean {
                 when (event.action) {
@@ -73,14 +82,11 @@ class GameFragment : Fragment() {
         })
 
 
-        /** Broj Pitanja iz Menu Fragmenta **/
-        val questionNumber = arguments?.getInt("questionNo") ?: 4
-        Log.d("BROJPITANJA", "BROJ U GAME FRAGMENTU: $questionNumber")
-
         binding.answerABtn.setOnClickListener{onClickA()}
         binding.answerBBtn.setOnClickListener{onClickB()}
         binding.answerCBtn.setOnClickListener{onClickC()}
         binding.answerDBtn.setOnClickListener{onClickD()}
+
 
         updateQuestionText()
         updateScoreText()
@@ -121,8 +127,12 @@ class GameFragment : Fragment() {
     }
 
 
+
     private fun onClickSubmit() {
         viewModel.onCheckAnswers(sendAnswers())
+        if(gameFinished()){
+            endGame(binding.root)
+        }
         updateScoreText()
         updateQuestionText()
         resetLayout()
@@ -165,6 +175,9 @@ class GameFragment : Fragment() {
     }
 
     private fun updateImageLayout(){
+       // val ims: InputStream = binding.root.context.assets.open("easy2.png")
+       // val d = Drawable.createFromStream(ims, null)
+       // binding.imageView.setImageDrawable(d)
         binding.imageView.visibility = View.VISIBLE
         if(viewModel.question?.possibleAnswers != null){
             updateMultipleChoice()
@@ -197,8 +210,8 @@ class GameFragment : Fragment() {
 
             binding.answerABtn.text = viewModel.question?.possibleAnswers?.elementAt(0)
             binding.answerBBtn.text = viewModel.question?.possibleAnswers?.elementAt(1)
-            binding.answerCBtn.text = viewModel.question?.possibleAnswers?.elementAt(3)
-            binding.answerDBtn.text = viewModel.question?.possibleAnswers?.elementAt(4)
+            binding.answerCBtn.text = viewModel.question?.possibleAnswers?.elementAt(2)
+            binding.answerDBtn.text = viewModel.question?.possibleAnswers?.elementAt(3)
 
         }
     }
@@ -234,7 +247,16 @@ class GameFragment : Fragment() {
     }
 
     //Treba implementirati
-    private fun gameFinished() {
-
+    private fun gameFinished(): Boolean {
+        if(viewModel.questionsList.isEmpty()) {
+            return true
+        }
+        return false
     }
+
+    private fun endGame(view: View){
+        val bundle = bundleOf(Pair("score", score))
+        view.findNavController().navigate(R.id.action_gameFragment_to_score_fragment, bundle)
+    }
+
 }
