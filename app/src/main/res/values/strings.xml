@@ -57,5 +57,6 @@
     <string name="mute_unmute_music">Mute/Unmute Music</string>
     <string name="check_highscores">Check Highscores</string>
     <string name="highscores_for_list">Highscores:</string>
+    <string name="call_dialog"><font size="15" color="#ffffff">Get Help?</font></string>
 
 </resources>

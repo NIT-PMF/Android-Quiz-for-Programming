@@ -46,5 +46,6 @@
     <string name="mute_unmute_music">Stišaj/Upali Muziku</string>
     <string name="check_highscores">Provjeri Bodove</string>
     <string name="highscores_for_list">Najviši Bodovi:</string>
+    <string name="call_dialog"><font size="15" color="#ffffff">Treba ti Pomoć?</font></string>
 
 </resources>

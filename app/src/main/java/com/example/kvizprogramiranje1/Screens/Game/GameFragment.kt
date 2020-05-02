@@ -9,7 +9,7 @@ import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
-import android.os.VibrationEffect
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -53,17 +53,13 @@ class GameFragment : Fragment() {
         viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(GameViewModel::class.java)
 
-
-        if(viewModel.popUpClicked){
+        if (viewModel.popUpClicked) {
             binding.jokerBtn.setBackgroundResource(R.drawable.glassis)
         }
 
-
-
         binding.submitBtn.setOnClickListener { onClickSubmit() }
         binding.givupBtn.setOnClickListener { view: View -> endGame(view) }
-        binding.jokerBtn.setOnClickListener{showPopUp()}
-
+        binding.jokerBtn.setOnClickListener { showPopUp() }
 
         //OnTouchListener za Izgled Dugmadi (Ne diraj)
         binding.givupBtn.setOnTouchListener(object : View.OnTouchListener {
@@ -118,25 +114,27 @@ class GameFragment : Fragment() {
         resetLayout()
         updateLayout()
 
+        (activity as MainQuizActivity).supportActionBar?.title =
+            getString(R.string.question_no_title) + (numbQuestion - viewModel.questionRemain())
+
         return binding.root
     }
 
 
-
-    private fun showPopUp(){
-        if(!viewModel.popUpClicked) {
-            val dialogBuilder = AlertDialog.Builder(context)
-            dialogBuilder.setMessage("Joker???")
-            dialogBuilder.setPositiveButton("CALL",
+    private fun showPopUp() {
+        if (!viewModel.popUpClicked) {
+            val dialogBuilder = AlertDialog.Builder(context, R.style.quizDialogTheme)
+            dialogBuilder.setMessage(getString(R.string.call_dialog))
+            dialogBuilder.setPositiveButton("CALL A FRIEND",
                 DialogInterface.OnClickListener { dialog, which -> callButton() })
-            dialogBuilder.setNegativeButton("SMS",
+            dialogBuilder.setNegativeButton("SMS SOMEONE",
                 DialogInterface.OnClickListener { dialog, whichButton -> smsButton() })
             val b = dialogBuilder.create()
             b.show()
         }
     }
 
-    private fun callButton(){
+    private fun callButton() {
         binding.jokerBtn.setBackgroundResource(R.drawable.glassis)
 
         viewModel.popUpClicked = true
@@ -145,16 +143,16 @@ class GameFragment : Fragment() {
         startActivity(intent)
     }
 
-    private fun smsButton(){
-        if(viewModel.question?.isImageQuestion!!){
+    private fun smsButton() {
+        if (viewModel.question?.isImageQuestion!!) {
             showToast(binding.root.context, getString(R.string.cant_use_for_image))
-        }else {
+        } else {
             binding.jokerBtn.setBackgroundResource(R.drawable.glassis)
 
             viewModel.popUpClicked = true
 
             var possibleAnswers = ""
-            if(viewModel.question!!.possibleAnswers != null) {
+            if (viewModel.question!!.possibleAnswers != null) {
                 for (answer in viewModel.question?.possibleAnswers!!) {
                     possibleAnswers += "->"
                     possibleAnswers += answer
@@ -248,12 +246,14 @@ class GameFragment : Fragment() {
         } else {
             updateTextInput()
         }
+        Log.d("TEST", "BROJ PITANJA: " + numbQuestion.toString() + ". BROJ PREOSTALIH: " + viewModel.questionRemain().toString())
         (activity as MainQuizActivity).supportActionBar?.title =
             getString(R.string.question_no_title) + (numbQuestion - viewModel.questionRemain())
     }
 
     private fun updateImageLayout() {
-        val ims: InputStream = binding.root.context.assets.open("quiz_code_images/"+ viewModel.question?.questionImage)
+        val ims: InputStream =
+            binding.root.context.assets.open("quiz_code_images/" + viewModel.question?.questionImage)
         val d = Drawable.createFromStream(ims, null)
         binding.imageView.setImageDrawable(d)
         binding.imageView.visibility = View.VISIBLE
@@ -316,8 +316,6 @@ class GameFragment : Fragment() {
 
     private fun updateQuestionText() {
         binding.questionText.text = viewModel.question?.questionText.toString()
-
-
     }
 
     private fun updateScoreText() {
@@ -333,8 +331,12 @@ class GameFragment : Fragment() {
     }
 
     private fun endGame(view: View) {
-        val bundle = bundleOf(Pair("score", score), Pair("joker", viewModel.popUpClicked), Pair("rightQuestions", viewModel.numOfQuestionRight), Pair("questionNumber", numbQuestion))
+        val bundle = bundleOf(
+            Pair("score", score),
+            Pair("joker", viewModel.popUpClicked),
+            Pair("rightQuestions", viewModel.numOfQuestionRight),
+            Pair("questionNumber", numbQuestion)
+        )
         view.findNavController().navigate(R.id.action_gameFragment_to_score_fragment, bundle)
     }
-
 }
