@@ -45,4 +45,8 @@
             android:id="@+id/action_score_fragment_to_menuFragment"
             app:destination="@id/menuFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/highscoreFragment"
+        android:name="com.example.kvizprogramiranje1.screens.main.HighscoreFragment"
+        android:label="HighscoreFragment" />
 </navigation>

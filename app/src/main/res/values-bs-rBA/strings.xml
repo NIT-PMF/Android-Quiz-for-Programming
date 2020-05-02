@@ -24,15 +24,27 @@
     <string name="easy">Lagano</string>
     <string name="change_language_to_ba">Promijenite Jezik na EN</string>
     <string name="rules_title">Pravila</string>
-    <string name="shere">Podjeli</string>
+    <string name="shere">Podijeli</string>
     <string name="play_agine">Igraj pnovo</string>
     <string name="your_score">Vaši Poeni</string>
     <string name="joker">Joker:</string>
-    <string name="seconds">Secunde:</string>
+    <string name="seconds">Sekunde:</string>
     <string name="need_help">Treba mi pomoć!!</string>
-    <string name="joker_used">Iskorište</string>
-    <string name="joker_not_used">Nije Iskorište</string>
-    <string name="cant_use_for_image">Nemožete koristiti za ovo pitanje!!</string>
-    <string name="correct_questions">Taćna pitanja: </string>
+    <string name="joker_used">Iskorišteno</string>
+    <string name="joker_not_used">Nije Iskorišteno</string>
+    <string name="cant_use_for_image">Ne možete koristiti za ovo pitanje!!</string>
+    <string name="correct_questions">Tačna pitanja:</string>
+    <string name="learn_about_python">Nauči o Pythonu</string>
+    <string name="basic_concepts">Osnovni Koncepti</string>
+    <string name="our_other_products">Naši drugi Proizvodi</string>
+    <string name="about_title">O Nama</string>
+    <string name="game_title">Menu Igre</string>
+    <string name="game_rules_title">Pravila Igre</string>
+    <string name="question_no_title">Broj Pitanja:</string>
+    <string name="by_us">Od NIT</string>
+    <string name="user_exists">Korisnik već postoji, izaberite drugo ime</string>
+    <string name="mute_unmute_music">Stišaj/Upali Muziku</string>
+    <string name="check_highscores">Provjeri Bodove</string>
+    <string name="highscores_for_list">Najviši Bodovi:</string>
 
 </resources>
