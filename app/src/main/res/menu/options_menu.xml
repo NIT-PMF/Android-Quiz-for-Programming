@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/menu_fragments"
+        android:checkableBehavior="none">
+    <item
+        android:id="@+id/aboutFragment"
+        android:title="@string/about_page_tile" />
 
     <item
         android:id="@+id/rulesFragment"
         android:title="@string/rules_title" />
+
+    <item
+        android:id="@+id/changeLanguage"
+        android:title="@string/change_language_to_ba" />
+
+    </group>
+
+    <group
+        android:id="@+id/other_fragments"
+        android:checkableBehavior="none">
+    <item
+        android:id="@+id/highscoreFragment"
+        android:icon="@drawable/ic_sentiment_very_satisfied_black_24dp"
+        android:title="@string/check_highscores"
+        />
+    </group>
+
 </menu>

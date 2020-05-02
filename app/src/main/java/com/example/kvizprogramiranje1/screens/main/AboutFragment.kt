@@ -28,7 +28,7 @@ class AboutFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_about, container, false)
 
-        (activity as MainQuizActivity).supportActionBar?.title = "About Us"
+        (activity as MainQuizActivity).supportActionBar?.title = getString(R.string.about_title)
 
         return binding.root
     }

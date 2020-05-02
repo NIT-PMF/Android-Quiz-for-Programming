@@ -182,7 +182,8 @@ class GameFragment : Fragment() {
         } else {
             updateTextInput()
         }
-        (activity as MainQuizActivity).supportActionBar?.title = "Question Number: ${numbQuestion - viewModel.questionRemain()}"
+        (activity as MainQuizActivity).supportActionBar?.title =
+            getString(R.string.question_no_title) + (numbQuestion - viewModel.questionRemain())
     }
 
     private fun updateImageLayout() {

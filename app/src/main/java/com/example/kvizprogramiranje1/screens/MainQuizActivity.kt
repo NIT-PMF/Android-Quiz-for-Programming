@@ -1,9 +1,10 @@
 package com.example.kvizprogramiranje1.screens
 
-import android.content.res.Configuration
+import android.content.Intent
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
@@ -13,12 +14,14 @@ import androidx.navigation.ui.NavigationUI
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.ActivityMainQuizBinding
 import com.example.kvizprogramiranje1.singleton.userSingletonData
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.drawer_header.view.*
-import java.util.*
 
-class MainQuizActivity : AppCompatActivity() {
+
+class MainQuizActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private var player: MediaPlayer? = null
+    private var playerPosition: Int? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,36 +55,13 @@ class MainQuizActivity : AppCompatActivity() {
 
 
         }
-    }
-
-    override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
+        binding.quizNavView.setNavigationItemSelectedListener(this)
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.quizFragment)
-        return when(navController.currentDestination?.id) {
-            R.id.changeLanguage -> {
-                Log.d("LANGUAGE", "USAO")
-                val config = resources.configuration
-                val locale = when (Locale.getDefault().displayLanguage) {
-                    "en" -> Locale("bs-rBA")
-                    else -> Locale("en")
-                }
-                Locale.setDefault(locale)
-                config.setLocale(locale)
-                //resources.updateConfiguration(config, resources.displayMetrics)
-                val configuration: Configuration = applicationContext.getResources().getConfiguration()
-                configuration.setLocale(locale)
-                configuration.setLayoutDirection(locale)
-                true
-            }
-            else -> NavigationUI.navigateUp(navController, drawerLayout) || super.onSupportNavigateUp()
-        }
+        return NavigationUI.navigateUp(navController, drawerLayout) || super.onSupportNavigateUp()
+
     }
 
     override fun onStop() {
@@ -90,5 +70,35 @@ class MainQuizActivity : AppCompatActivity() {
             player!!.release()
             player = null
         }
+    }
+
+ override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.learnProgramming -> {
+                val uriUrl: Uri = Uri.parse("https://www.tutorialspoint.com/computer_programming/computer_programming_basics.htm")
+                val launchBrowser = Intent(Intent.ACTION_VIEW, uriUrl)
+                startActivity(launchBrowser)
+            }
+            R.id.learnPython -> {
+                val uriUrl: Uri = Uri.parse("https://www.learnpython.org/")
+                val launchBrowser = Intent(Intent.ACTION_VIEW, uriUrl)
+                startActivity(launchBrowser)
+            }
+            R.id.aboutUs -> {
+                val uriUrl: Uri = Uri.parse("https://github.com/NIT-PMF/")
+                val launchBrowser = Intent(Intent.ACTION_VIEW, uriUrl)
+                startActivity(launchBrowser)
+            }
+            R.id.music_stop -> {
+                if (player?.isPlaying ?: false) {
+                    player?.pause();
+                    playerPosition = player?.getCurrentPosition();
+                } else {
+                    player?.start()
+                }
+            }
+        }
+        drawerLayout.closeDrawer(GravityCompat.START)
+        return true
     }
 }

@@ -10,7 +10,7 @@ object userSingletonData {
             User(
                 0,
                 "Tarik",
-                0)
+                52)
         )
         userData.add(
             User(
@@ -51,6 +51,10 @@ object userSingletonData {
     fun addUser(User: User) {
         userData.add(User)
     }
+
+    fun showHighscore(): List<User?> {
+        return userData.sortedByDescending { it?.score }.take(10)
+    }
 }
 
-data class User(val id: Number, val username: String, val score: Number)
+data class User(val id: Number, val username: String, val score: Int)

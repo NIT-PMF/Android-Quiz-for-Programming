@@ -41,5 +41,9 @@
         android:name="com.example.kvizprogramiranje1.screens.score.ScoreFragment"
         android:label="ScoreFragment"
         tools:layout="@layout/score_fragment" />
+    <fragment
+        android:id="@+id/highscoreFragment"
+        android:name="com.example.kvizprogramiranje1.screens.main.HighscoreFragment"
+        android:label="HighscoreFragment" />
 </navigation>
 

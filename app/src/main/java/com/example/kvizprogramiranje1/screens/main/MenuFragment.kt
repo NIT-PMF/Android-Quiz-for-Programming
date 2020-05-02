@@ -3,10 +3,12 @@ package com.example.kvizprogramiranje1.screens.main
 import android.annotation.SuppressLint
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import androidx.core.os.ConfigurationCompat
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -14,6 +16,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentMenuBinding
+import com.example.kvizprogramiranje1.logic.applyLanguage
 import com.example.kvizprogramiranje1.screens.MainQuizActivity
 
 
@@ -32,7 +35,7 @@ class MenuFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_menu, container, false)
         spinner = binding.noQuestionSpinner
 
-        (activity as MainQuizActivity).supportActionBar?.title = "Game Menu"
+        (activity as MainQuizActivity).supportActionBar?.title = getString(R.string.game_title)
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -120,7 +123,7 @@ class MenuFragment : Fragment() {
         }
 
         binding.hardBtn.setOnClickListener { view: View ->
-            val bundle = bundleOf(Pair("questionNo", questionNumber),  Pair("mode", 3))
+            val bundle = bundleOf(Pair("questionNo", questionNumber), Pair("mode", 3))
             val soundClick: MediaPlayer? = MediaPlayer.create(context, R.raw.click_sound)
             soundClick?.start()
             binding.hardBtn.setBackgroundResource(R.drawable.ic_button_pressed_yellow)
@@ -148,11 +151,25 @@ class MenuFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(
-            item,
-            requireView().findNavController()
-        )
-                || super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.changeLanguage -> {
+                var language = "english"
+                language = when (ConfigurationCompat.getLocales(resources.configuration).get(0)
+                    .toString()) {
+                    "english" -> "bs"
+                    else -> "english"
+                }
+                Log.d("LANGUAGE", "Novi jezik: $language")
+                applyLanguage(requireContext(), language)
+                val intent = activity?.intent
+                startActivity(intent)
+                true
+            }
+            else -> NavigationUI.onNavDestinationSelected(
+                item,
+                requireView().findNavController()
+            )
+                    || super.onOptionsItemSelected(item)
+        }
     }
-
 }

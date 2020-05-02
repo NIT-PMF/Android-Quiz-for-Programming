@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/menu_top"
+        android:checkableBehavior="none">
+    <item
+        android:id="@+id/learnPython"
+        android:title="@string/learn_about_python" />
 
     <item
-        android:id="@+id/aboutFragment"
-        android:title="@string/about_page_tile" />
+        android:id="@+id/learnProgramming"
+        android:title="@string/basic_concepts" />
+    </group>
 
-    <item
-        android:id="@+id/changeLanguage"
-        android:title="@string/change_language_to_ba" />
+    <group
+        android:id="@+id/menu_middle"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/aboutUs"
+            android:title="@string/our_other_products" />
+    </group>
+
+    <group
+        android:id="@+id/stop_music_group"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/music_stop"
+            android:title="@string/mute_unmute_music" />
+    </group>
 </menu>

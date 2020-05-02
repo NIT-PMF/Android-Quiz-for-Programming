@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">"Programming 1 Quiz "</string>
+    <string name="app_name">"ITQuiz"</string>
     <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Type_Your_Username:</string>
     <string name="app_logo_description">App Logo</string>
     <string name="done">Done</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hello</string>
     <string name="toast_username">Please Write Your Name</string>
     <string name="rules">Thank you for playing our IT quiz. \nAnswering the question correctly grants you 10 pts. For each badly answered question you will lose 10 pts. There is a 60sec timer on each question, failing to answer in given time will skip the questin and you will lose the points. Going back will end the quiz completely. You have a once-in-a-quiz chance to call someone or text someone to help you answer the question. \nTry not to cheat :)</string>
     <string name="enter_game">Enter</string>
@@ -34,5 +34,17 @@
     <string name="choose_difficulty">Choose Quiz Difficulty   \n<font size="15">(Upon choosing, the game will start)</font></string>
     <string name="change_language_to_ba">Change Language To BA</string>
     <string name="rules_title">Rules</string>
+    <string name="learn_about_python">Learn About Python</string>
+    <string name="basic_concepts">Basic Concepts</string>
+    <string name="our_other_products">Our Other Products</string>
+    <string name="about_title">About Us</string>
+    <string name="game_title">Game Menu</string>
+    <string name="game_rules_title">Game Rules</string>
+    <string name="question_no_title">"Question Number: "</string>
+    <string name="by_us">By NIT</string>
+    <string name="user_exists">User Already Exists. Choose another</string>
+    <string name="mute_unmute_music">Mute/Unmute Music</string>
+    <string name="check_highscores">Check Highscores</string>
+    <string name="highscores_for_list">Highscores:</string>
 
 </resources>

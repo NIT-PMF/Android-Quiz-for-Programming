@@ -28,7 +28,7 @@ class RulesFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_rules, container, false)
 
-        (activity as MainQuizActivity).supportActionBar?.title = "Game Rules"
+        (activity as MainQuizActivity).supportActionBar?.title = getString(R.string.game_rules_title)
         return binding.root
     }
 

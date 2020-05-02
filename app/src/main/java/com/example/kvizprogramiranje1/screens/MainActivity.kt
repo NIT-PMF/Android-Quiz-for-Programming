@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         player?.start()
 
         supportActionBar?.title = "ITQuiz Mini Game"
-        supportActionBar?.subtitle = "By NIT"
+        supportActionBar?.subtitle = getString(R.string.by_us)
         hideKeyboard()
 
         rulesFragment = RulesFragment()
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         val username: String = binding.usernamePt.text.toString()
 
         if (userSingletonData.findUser(username) != null) {
-            showToast(applicationContext, "User Already Exists. Choose another")
+            showToast(applicationContext, getString(R.string.user_exists))
         } else {
             if (checkUsername(username)) {
                 Log.i("MainActivity", userSingletonData.getUserData().toString())

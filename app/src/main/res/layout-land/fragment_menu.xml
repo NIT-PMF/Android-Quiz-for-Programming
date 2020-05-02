@@ -6,10 +6,12 @@
     tools:context="com.example.android.navigation.MenuFragment">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="model"
-            type="com.example.kvizprogramiranje1.screens.game.GameViewModel"/>
+            type="com.example.kvizprogramiranje1.screens.game.GameViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -101,6 +103,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
                 <Space
                     android:layout_width="20dp"
                     android:layout_height="wrap_content" />
