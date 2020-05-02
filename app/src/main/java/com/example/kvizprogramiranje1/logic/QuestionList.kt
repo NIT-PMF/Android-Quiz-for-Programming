@@ -101,9 +101,73 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
                 mutableListOf("union()", "update()"),
                 false,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
+            ),
+            Question(
+                31,
+                "To convert a string to lowercase, what Python function can be used?",
+                null,
+                null,
+                mutableListOf("lower()"),
+                false,
+                questionSingletonData.QUESTION_TEXT
+            ),
+            Question(
+                32,
+                "What are Python packages?",
+                null,
+                mutableListOf("namespaces containing modules", "namespaces containing single module", "helper function"),
+                mutableListOf("namespaces containing modules"),
+                false,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
+            Question(
+                33,
+                "To convert a string to lowercase, what Python function can be used?",
+                null,
+                null,
+                mutableListOf("lower()"),
+                false,
+                questionSingletonData.QUESTION_TEXT
+            ),
+            Question(
+                34,
+                "In what ways can we add values to a python array?",
+                null,
+                mutableListOf("add()", "extend()", "insert(i,x)", "join()"),
+                mutableListOf("extend()", "insert(i,x)"),
+                false,
+                questionSingletonData.QUESTION_MULTIPLE_CHOICE
+            ),
+            Question(
+                35,
+                "What is the output of this code?",
+                "hard5.jpg",
+                mutableListOf("array(‘d’, [1.1, 2.1, 3.1, 3.4])", "array(‘d’, [1.1, 2.1, 3.1, 3.4, 4.5, 6.3, 6.8])", "array(‘d’, [1.1, 2.1, 3.8, 3.1, 3.4, 4.5, 6.3, 6.8])"),
+                mutableListOf("array(‘d’, [1.1, 2.1, 3.1, 3.4])", "array(‘d’, [1.1, 2.1, 3.1, 3.4, 4.5, 6.3, 6.8])", "array(‘d’, [1.1, 2.1, 3.8, 3.1, 3.4, 4.5, 6.3, 6.8])"),
+                true,
+                questionSingletonData.QUESTION_MULTIPLE_CHOICE
+            ),
+            Question(
+                36,
+                "What is the difference between “is” and “==”?",
+                null,
+                mutableListOf("'is' checks identity", "== checks equality", "they are the same", "'is' checks strings"),
+                mutableListOf("'is' checks identity", "== checks equality"),
+                false,
+                questionSingletonData.QUESTION_MULTIPLE_CHOICE
+            ),
+            Question(
+                37,
+                "How will you convert a string S to a list in python?",
+                null,
+                null,
+                mutableListOf("list(S)"),
+                false,
+                questionSingletonData.QUESTION_TEXT
             )
         )
     )
+
     mediumQuestionList.addAll(
         mutableListOf(
             Question(
@@ -194,6 +258,69 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
                 mutableListOf("2*n", "n", "n+1", "n-1"),
                 mutableListOf("n"),
                 true,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
+            Question(
+                21,
+                "How will you randomizes the items of a list LST in place?",
+                null,
+                null,
+                mutableListOf("shuffle(LST)"),
+                false,
+                questionSingletonData.QUESTION_TEXT
+            ),
+            Question(
+                22,
+                "How will you capitalizes first letter of string?",
+                null,
+                mutableListOf("upper()", "capitalize()", "capitalizeLetter()", "capitalizeFirstLetter()"),
+                mutableListOf("capitalize()"),
+                false,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
+            Question(
+                23,
+                "How will you convert a string to all uppercase?",
+                null,
+                null,
+                mutableListOf("upper()"),
+                false,
+                questionSingletonData.QUESTION_TEXT
+            ),
+            Question(
+                24,
+                "How will you compare two lists in Python?",
+                null,
+                mutableListOf("compare(list1, list2)", "cmp(list1, list2)", "list1 == list2",  "list1.returnAll(list2)"),
+                mutableListOf("cmp(list1, list2)"),
+                false,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
+            Question(
+                25,
+                "What is the output of the folowing code?",
+                "medium5.jpg",
+                mutableListOf("LEARN PYTHON", "learn python", "lEAN pYTHON",  "Learn Python"),
+                mutableListOf("Learn Python"),
+                true,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
+            Question(
+                26,
+                "What is the result of multiplying the string ‘cat’ by 3.?",
+                null,
+                mutableListOf("cat3", "ERROR", "catcatcat",  "None of the above"),
+                mutableListOf("catcatcat"),
+                false,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
+            Question(
+                27,
+                "What is the result of multiplying a list [1,2] by 3?",
+                "medium5.jpg",
+                mutableListOf("[1,2,1,2]", "[1,2,3]", "ERROR",  "[2,6]"),
+                mutableListOf("[1,2,1,2]"),
+                false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             )
         )
@@ -289,6 +416,69 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
                 mutableListOf("Python is an interpreted language", "Python emphasises code readability", "Python's extension is .py"),
                 false,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
+            ),
+            Question(
+                11,
+                "What operator do you use to concatenate two lists?",
+                null,
+                null,
+                mutableListOf("+"),
+                false,
+                questionSingletonData.QUESTION_TEXT
+            ),
+            Question(
+                12,
+                "How to take the absolute value of an integer?",
+                null,
+                mutableListOf("abs(x)", "absolute(x)", "int(x)", "x.absolute"),
+                mutableListOf("abx(x)"),
+                false,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
+            Question(
+                13,
+                "What is the output of the following code?",
+                "easy3.jpg",
+                mutableListOf("ERROR", "5", "23", "3"),
+                mutableListOf("5"),
+                true,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
+            Question(
+                14,
+                "What is the output of the following code?",
+                "easy4.jpg",
+                mutableListOf("aBCD", "abcd", "Abcd", "abcD"),
+                mutableListOf("abcd"),
+                true,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
+            Question(
+                15,
+                "What does len() do?",
+                null,
+                mutableListOf("determine length of the string", "determine length of a list", "determine length of an array"),
+                mutableListOf("determine length of the string", "determine length of a list", "determine length of an array"),
+                false,
+                questionSingletonData.QUESTION_MULTIPLE_CHOICE
+            ),
+            Question(
+                16,
+                "What are the built-in types of python?",
+                null,
+                mutableListOf("Lists", "Floating-point", "Boolean", "Built-in functions"),
+                mutableListOf("Floating-point", "Boolean", "Built-in functions"),
+                false,
+                questionSingletonData.QUESTION_MULTIPLE_CHOICE
+            ),
+            Question(
+                17,
+                "What is the output of the following code?",
+                "easy5.jpg",
+                mutableListOf("[‘edureka’, ‘python’]", "edureka python", "['edurekapython']", "edurekapython"),
+                mutableListOf("[‘edureka’, ‘python’]"),
+                true,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
             )
         )
     )
