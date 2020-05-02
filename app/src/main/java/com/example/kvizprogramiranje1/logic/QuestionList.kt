@@ -43,7 +43,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
                 24,
                 "In python3 what does // operator do?",
                 null,
-                mutableListOf("Float division", "returns remainder", "same as a**b", "Integer divison"),
+                mutableListOf("Float division", "returns remainder", "same as a**b", "Integer division"),
                 mutableListOf("Integer division"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
@@ -138,7 +138,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
                 "Can Python functions return multiple variables?",
                 null,
                 null,
-                mutableListOf("Yes"),
+                mutableListOf("yes"),
                 false,
                 questionSingletonData.QUESTION_TEXT
             ),

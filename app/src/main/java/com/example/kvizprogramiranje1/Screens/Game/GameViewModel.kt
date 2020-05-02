@@ -58,12 +58,13 @@ class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
 
     fun onCheckAnswers(answers: ArrayList<String>) {
         if (question?.possibleAnswers == null) {
-
             var answersType = answers[0].toLowerCase().split(",")
             var brojac = 0
             for (answer in answersType) {
                 brojac++
+                Log.i(answer, "lol")
                 if (question!!.correctAnswers!!.contains(answer)) {
+                    Log.i(answer, "lol")
                     score += points
                     if(brojac == answersType.size){
                         numOfQuestionRight++
@@ -74,9 +75,14 @@ class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
             }
         } else {
             var brojac = 0
-            for (answer in answers) {
+            for (correct in question!!.correctAnswers!!) {
+                Log.i(correct, "gmm")
                 brojac++
-                if (question!!.correctAnswers!!.contains(answer)) {
+                for(answer in answers){
+                    Log.i(answer, "mmm")
+                }
+                if (answers.contains(correct)) {
+                        Log.i(correct, "hmm")
                     score += points
                     if(brojac == answers.size){
                         numOfQuestionRight++
