@@ -19,104 +19,76 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/quizConstraint"
-            android:layout_width="759dp"
-            android:layout_height="441dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_margin="30dp"
             android:background="@drawable/rectangle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            tools:layout_editor_absoluteX="-31dp"
+            tools:layout_editor_absoluteY="102dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/chooseDifficulty_tv"
+                app:layout_constraintGuide_percent="0.3" />
 
             <Button
                 android:id="@+id/hard_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="117dp"
-                android:layout_marginTop="43dp"
-                android:layout_marginEnd="217dp"
-                android:layout_marginBottom="156dp"
+                android:layout_marginStart="125dp"
+                android:layout_marginEnd="126dp"
+                android:layout_marginBottom="87dp"
                 android:background="@drawable/ic_button_image_yellow"
                 android:text="@string/shere"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/linearLayout5"
-                app:layout_constraintTop_toBottomOf="@+id/easy_btn" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <Button
                 android:id="@+id/easy_btn"
                 style="@style/yellow_button_style"
-                android:layout_marginStart="51dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="217dp"
+                android:layout_marginStart="125dp"
+                android:layout_marginEnd="126dp"
+                android:layout_marginBottom="32dp"
                 android:text="@string/play_agine"
+                app:layout_constraintBottom_toTopOf="@+id/hard_btn"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/linearLayout3"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+                app:layout_constraintStart_toStartOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout6"
-                android:layout_width="620dp"
-                android:layout_height="57dp"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="68dp"
-                android:layout_marginEnd="7dp"
-                android:orientation="horizontal"
+            <TextView
+                android:id="@+id/chooseDifficulty_tv"
+                style="@style/quiz_header"
+                android:layout_width="268dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="49dp"
+                android:layout_marginTop="123dp"
+                android:layout_marginEnd="84dp"
+                android:layout_marginBottom="58dp"
+                android:padding="8dp"
+                android:text="@string/choose_next"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.329"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/chooseQuestions_tv"
-                    style="@style/quiz_header"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="84dp"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginBottom="80dp"
-                    android:padding="8dp"
-                    android:text="@string/end_game"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/chooseDifficulty_tv"
-                    style="@style/quiz_header"
-                    android:layout_width="268dp"
-                    android:layout_height="54dp"
-                    android:padding="8dp"
-                    android:text="@string/choose_next"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold" />
-
-                <Space
-                    android:layout_width="17dp"
-                    android:layout_height="35dp"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/chooseQuestions_tv" />
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="309dp"
                 android:layout_height="52dp"
-                android:layout_marginStart="82dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
                 android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:id="@+id/textView"
@@ -158,17 +130,34 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/chooseQuestions_tv"
+                style="@style/quiz_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="92dp"
+                android:layout_marginBottom="189dp"
+                android:padding="8dp"
+                android:text="@string/end_game"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/chooseDifficulty_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <LinearLayout
                 android:id="@+id/linearLayout5"
                 android:layout_width="234dp"
                 android:layout_height="39dp"
-                android:layout_marginStart="91dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="164dp"
+                android:layout_marginStart="49dp"
+                android:layout_marginEnd="68dp"
+                android:layout_marginBottom="30dp"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+                app:layout_constraintBottom_toTopOf="@+id/easy_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.42"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:id="@+id/textView5"

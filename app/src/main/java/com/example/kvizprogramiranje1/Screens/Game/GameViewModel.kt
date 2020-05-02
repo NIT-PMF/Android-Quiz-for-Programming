@@ -12,6 +12,9 @@ var score = 0
 
 class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
 
+    var numOfQuestionRight = 0
+
+    var popUpClicked = false
 
     var question: Question? = null
 
@@ -19,6 +22,7 @@ class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
 
     var points: Int
     var penaltyPoints: Int
+
 
     init {
 
@@ -37,6 +41,8 @@ class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
             penaltyPoints = 10
         }
         score = 0
+        popUpClicked = false
+        numOfQuestionRight = 0
         nextQuestion()
     }
 
@@ -52,15 +58,29 @@ class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
 
     fun onCheckAnswers(answers: ArrayList<String>) {
         if (question?.possibleAnswers == null) {
-            if (question!!.correctAnswers!!.contains(answers[0])) {
-                score += points
-            } else {
-                score -= penaltyPoints
-            }
-        } else {
-            for (answer in answers) {
+
+            var answersType = answers[0].toLowerCase().split(",")
+            var brojac = 0
+            for (answer in answersType) {
+                brojac++
                 if (question!!.correctAnswers!!.contains(answer)) {
                     score += points
+                    if(brojac == answersType.size){
+                        numOfQuestionRight++
+                    }
+                } else {
+                    score -= penaltyPoints
+                }
+            }
+        } else {
+            var brojac = 0
+            for (answer in answers) {
+                brojac++
+                if (question!!.correctAnswers!!.contains(answer)) {
+                    score += points
+                    if(brojac == answers.size){
+                        numOfQuestionRight++
+                    }
                 } else {
                     score -= penaltyPoints
                 }
