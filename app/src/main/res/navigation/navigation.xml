@@ -40,10 +40,9 @@
         android:id="@+id/score_fragment"
         android:name="com.example.kvizprogramiranje1.screens.score.ScoreFragment"
         android:label="ScoreFragment"
-        tools:layout="@layout/score_fragment" />
-    <fragment
-        android:id="@+id/highscoreFragment"
-        android:name="com.example.kvizprogramiranje1.screens.main.HighscoreFragment"
-        android:label="HighscoreFragment" />
+        tools:layout="@layout/score_fragment" >
+        <action
+            android:id="@+id/action_score_fragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
 </navigation>
-

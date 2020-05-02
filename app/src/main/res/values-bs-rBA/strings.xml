@@ -10,6 +10,8 @@
     <string name="rules">Hvala na pokretanju naše male igrice ITQuiz.\nPrilikom odgovaranja na pitanja dobijate određeni dio bodova. Za svako loše osgovoreno pitanje gubite bodove. Imate ograničenu količinu vremena inače gubite bodove.  Izlaženjem iz kviza vaši bodovi se vraćaju na 0.  Prilikom odgovaranja imate jednom-u-igri opciju da nazovete nekoga ili pošaljete poruku.\nNemojte varati :)</string>
     <string name="enter_game">Uđite</string>
     <string name="no_question">Izaberite Broj Pitanja</string>
+    <string name="end_game">Uspješno ste završili Kviz!</string>
+    <string name="choose_next">Odaberite šta se dešava sljedeće</string>
     <string name="about_page_tile">O Nama</string>
     <string name="about_page_main">Pilići i koka  Pi pi pi pi pi pi pi Mama koko, gdje si ti? Ko ko ko ko ko ko da Evo djeco, tu sam ja.   Pi pi pi pi pi pi pi Gladni smo ti mama mi.  Ko ko ko ko ko ko da Meni zrno, vama dva.</string>
     <string name="about_page_author">Igru Pravili: Irhad Fejzic, Tarik Selimovic</string>
@@ -22,16 +24,15 @@
     <string name="easy">Lagano</string>
     <string name="change_language_to_ba">Promijenite Jezik na EN</string>
     <string name="rules_title">Pravila</string>
-    <string name="learn_about_python">Nauči o Pythonu</string>
-    <string name="basic_concepts">Osnovni Koncepti</string>
-    <string name="our_other_products">Naši ostali Produkti</string>
-    <string name="about_title">O Nama</string>
-    <string name="game_title">Menu Igrice</string>
-    <string name="game_rules_title">Pravila Igrice</string>
-    <string name="question_no_title">Broj Pitanja:</string>
-    <string name="by_us">Od NIT-a</string>
-    <string name="user_exists">Korisnik već postoji. Izaberite drugi naziv.</string>
-    <string name="mute_unmute_music">Ugasi/Upali Muziku</string>
-    <string name="check_highscores">Provjeri Rezultate</string>
-    <string name="highscores_for_list">Najbolji Rezultati:</string>
+    <string name="shere">Podjeli</string>
+    <string name="play_agine">Igraj pnovo</string>
+    <string name="your_score">Vaši Poeni</string>
+    <string name="joker">Joker:</string>
+    <string name="seconds">Secunde:</string>
+    <string name="need_help">Treba mi pomoć!!</string>
+    <string name="joker_used">Iskorište</string>
+    <string name="joker_not_used">Nije Iskorište</string>
+    <string name="cant_use_for_image">Nemožete koristiti za ovo pitanje!!</string>
+    <string name="correct_questions">Taćna pitanja: </string>
+
 </resources>

@@ -1,12 +1,20 @@
 package com.example.kvizprogramiranje1.screens.game
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
+import android.os.VibrationEffect
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ShareCompat
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil.inflate
 import androidx.fragment.app.Fragment
@@ -14,7 +22,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentGameBinding
+import com.example.kvizprogramiranje1.logic.showToast
 import com.example.kvizprogramiranje1.screens.MainQuizActivity
+import java.io.InputStream
 
 
 class GameFragment : Fragment() {
@@ -43,8 +53,16 @@ class GameFragment : Fragment() {
         viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(GameViewModel::class.java)
 
+
+        if(viewModel.popUpClicked){
+            binding.jokerBtn.setBackgroundResource(R.drawable.glassis)
+        }
+
+
+
         binding.submitBtn.setOnClickListener { onClickSubmit() }
         binding.givupBtn.setOnClickListener { view: View -> endGame(view) }
+        binding.jokerBtn.setOnClickListener{showPopUp()}
 
 
         //OnTouchListener za Izgled Dugmadi (Ne diraj)
@@ -95,7 +113,6 @@ class GameFragment : Fragment() {
         binding.answerCBtn.setOnClickListener { onClickC() }
         binding.answerDBtn.setOnClickListener { onClickD() }
 
-
         updateQuestionText()
         updateScoreText()
         resetLayout()
@@ -104,6 +121,55 @@ class GameFragment : Fragment() {
         return binding.root
     }
 
+
+
+    private fun showPopUp(){
+        if(!viewModel.popUpClicked) {
+            val dialogBuilder = AlertDialog.Builder(context)
+            dialogBuilder.setMessage("Joker???")
+            dialogBuilder.setPositiveButton("CALL",
+                DialogInterface.OnClickListener { dialog, which -> callButton() })
+            dialogBuilder.setNegativeButton("SMS",
+                DialogInterface.OnClickListener { dialog, whichButton -> smsButton() })
+            val b = dialogBuilder.create()
+            b.show()
+        }
+    }
+
+    private fun callButton(){
+        binding.jokerBtn.setBackgroundResource(R.drawable.glassis)
+
+        viewModel.popUpClicked = true
+        val intent = Intent(Intent.ACTION_DIAL)
+        intent.data = Uri.parse("tel:0123456789")
+        startActivity(intent)
+    }
+
+    private fun smsButton(){
+        if(viewModel.question?.isImageQuestion!!){
+            showToast(binding.root.context, getString(R.string.cant_use_for_image))
+        }else {
+            binding.jokerBtn.setBackgroundResource(R.drawable.glassis)
+
+            viewModel.popUpClicked = true
+
+            var possibleAnswers = ""
+            if(viewModel.question!!.possibleAnswers != null) {
+                for (answer in viewModel.question?.possibleAnswers!!) {
+                    possibleAnswers += "->"
+                    possibleAnswers += answer
+                    possibleAnswers += "\n"
+                }
+            }
+
+            startActivity(
+                ShareCompat.IntentBuilder.from(binding.root.context as Activity)
+                    .setText(getString(R.string.need_help) + "\n" + viewModel.question?.questionText.toString() + "\n" + possibleAnswers)
+                    .setType("text/plain")
+                    .intent
+            )
+        }
+    }
 
     private fun onClickA() {
         CLICK_A++
@@ -187,9 +253,9 @@ class GameFragment : Fragment() {
     }
 
     private fun updateImageLayout() {
-        // val ims: InputStream = binding.root.context.assets.open("easy2.png")
-        // val d = Drawable.createFromStream(ims, null)
-        // binding.imageView.setImageDrawable(d)
+        val ims: InputStream = binding.root.context.assets.open("quiz_code_images/"+ viewModel.question?.questionImage)
+        val d = Drawable.createFromStream(ims, null)
+        binding.imageView.setImageDrawable(d)
         binding.imageView.visibility = View.VISIBLE
         if (viewModel.question?.possibleAnswers != null) {
             updateMultipleChoice()
@@ -244,7 +310,7 @@ class GameFragment : Fragment() {
         binding.radioGroupC.clearCheck()
         binding.radioGroupD.clearCheck()
 
-        binding.imageView.visibility = View.INVISIBLE
+        binding.imageView.visibility = View.GONE
 
     }
 
@@ -258,7 +324,7 @@ class GameFragment : Fragment() {
         binding.scoreText.text = score.toString()
     }
 
-    //Treba implementirati
+
     private fun gameFinished(): Boolean {
         if (viewModel.questionsList.isEmpty()) {
             return true
@@ -267,7 +333,7 @@ class GameFragment : Fragment() {
     }
 
     private fun endGame(view: View) {
-        val bundle = bundleOf(Pair("score", score))
+        val bundle = bundleOf(Pair("score", score), Pair("joker", viewModel.popUpClicked), Pair("rightQuestions", viewModel.numOfQuestionRight), Pair("questionNumber", numbQuestion))
         view.findNavController().navigate(R.id.action_gameFragment_to_score_fragment, bundle)
     }
 

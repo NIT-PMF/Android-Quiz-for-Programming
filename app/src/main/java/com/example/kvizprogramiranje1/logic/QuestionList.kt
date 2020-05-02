@@ -15,7 +15,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             Question(
                 21,
                 "What is the output of the following code?",
-                "hard2.png",
+                "hard2.jpg",
                 mutableListOf("i is 5 isPrime is True", "i is 5 isPrime is False", "i is 6 isPrime is True", "i is 6 isPrime is False"),
                 mutableListOf("i is 5 isPrime is False"),
                 true,
@@ -51,7 +51,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             Question(
                 25,
                 "What are the base cases in the following recursive function?",
-                "hard3.png",
+                "hard3.jpg",
                 mutableListOf("n>0", "n<=0", "no base cases", "n<0"),
                 mutableListOf("n<=0"),
                 true,
@@ -60,7 +60,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             Question(
                 26,
                 "What is the output of the following code for print(f2(2, 0))?",
-                "hard4.png",
+                "hard4.jpg",
                 mutableListOf("0", "1", "2", "3"),
                 mutableListOf("0"),
                 true,
@@ -118,7 +118,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             Question(
                 12,
                 "What is the output of the following code?",
-                "medium1.png",
+                "medium1.jpg",
                 mutableListOf("[‘ab’, ‘cd’]", "[‘AB’, ‘CD’]", "['Ab', 'Cd']"),
                 mutableListOf("[‘ab’, ‘cd’]"),
                 true,
@@ -145,7 +145,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             Question(
                 15,
                 "What is the output of the following code?",
-                "medium3.png",
+                "medium3.jpg",
                 mutableListOf("Hello foo and bin", "Hello {name1} and {name2}", "Error", "Hello and"),
                 mutableListOf("Hello foo and bin"),
                 true,
@@ -172,7 +172,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             Question(
                 18,
                 "What is the output of the following code?",
-                "medium3.png",
+                "medium3.jpg",
                 mutableListOf("Hello foo and bin", "Hello {name1} and {name2}", "Error", "Hello and"),
                 mutableListOf("Hello foo and bin"),
                 true,
@@ -190,7 +190,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             Question(
                 20,
                 "What is the number of iterations in the following loop:",
-                "medium4.png",
+                "medium4.jpg",
                 mutableListOf("2*n", "n", "n+1", "n-1"),
                 mutableListOf("n"),
                 true,
@@ -230,7 +230,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             Question(
                 4,
                 "What is the output of the following code?",
-                "easy1.png",
+                "easy1.jpg",
                 mutableListOf("type 'int'", "type 'type'", "0", "'Error'"),
                 mutableListOf("type 'type'"),
                 true,
