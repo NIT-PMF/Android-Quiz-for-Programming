@@ -51,6 +51,7 @@ class GameFragment : Fragment() {
 
         numbQuestion = arguments?.getInt("questionNo") ?: 4
         val gameDifficulty = arguments?.getInt("mode") ?: 1
+
         viewModelFactory = GameViewModelFactory(numbQuestion, gameDifficulty)
         viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(GameViewModel::class.java)
@@ -221,7 +222,7 @@ class GameFragment : Fragment() {
             answers.add(binding.answerABtn.text as String)
         }
         if (binding.answerBBtn.isChecked) {
-            answers.add(binding.answerABtn.text as String)
+            answers.add(binding.answerBBtn.text as String)
         }
         if (binding.answerCBtn.isChecked) {
             answers.add(binding.answerCBtn.text as String)
