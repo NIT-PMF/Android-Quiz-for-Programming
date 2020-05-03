@@ -24,6 +24,8 @@ import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentGameBinding
 import com.example.kvizprogramiranje1.logic.showToast
 import com.example.kvizprogramiranje1.screens.MainQuizActivity
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.drawer_header.view.*
 import java.io.InputStream
 
 
@@ -249,6 +251,8 @@ class GameFragment : Fragment() {
         Log.d("TEST", "BROJ PITANJA: " + numbQuestion.toString() + ". BROJ PREOSTALIH: " + viewModel.questionRemain().toString())
         (activity as MainQuizActivity).supportActionBar?.title =
             getString(R.string.question_no_title) + (numbQuestion - viewModel.questionRemain())
+
+        (activity as MainQuizActivity).findViewById<NavigationView>(R.id.quizNavView).getHeaderView(0).highscore_number_tv.text = score.toString()
     }
 
     private fun updateImageLayout() {

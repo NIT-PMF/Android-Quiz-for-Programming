@@ -9,10 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.ActivityMainQuizBinding
+import com.example.kvizprogramiranje1.screens.game.GameViewModel
 import com.example.kvizprogramiranje1.singleton.userSingletonData
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.drawer_header.view.*
@@ -20,8 +23,10 @@ import kotlinx.android.synthetic.main.drawer_header.view.*
 
 class MainQuizActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
+    private lateinit var binding : ActivityMainQuizBinding
     private var player: MediaPlayer? = null
     private var playerPosition: Int? = null
+    private lateinit var viewModel: GameViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +42,7 @@ class MainQuizActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             player?.setVolume(100f, 100f)
         }
         player?.start()
+
 
         drawerLayout = binding.drawerLayoutMain
         val navController = this.findNavController(R.id.quizFragment)
