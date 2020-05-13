@@ -14,12 +14,12 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil.inflate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentGameBinding
@@ -28,6 +28,7 @@ import com.example.kvizprogramiranje1.screens.MainQuizActivity
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.drawer_header.view.*
 import java.io.InputStream
+import java.lang.reflect.Field
 
 
 class GameFragment : Fragment() {
@@ -220,16 +221,16 @@ class GameFragment : Fragment() {
     private fun sendAnswers(): ArrayList<String> {
         val answers = arrayListOf<String>()
         if (binding.answerABtn.isChecked) {
-            answers.add(binding.answerABtn.text as String)
+            answers.add(viewModel.question?.possibleAnswers?.elementAt(0) as String)
         }
         if (binding.answerBBtn.isChecked) {
-            answers.add(binding.answerBBtn.text as String)
+            answers.add(viewModel.question?.possibleAnswers?.elementAt(1) as String)
         }
         if (binding.answerCBtn.isChecked) {
-            answers.add(binding.answerCBtn.text as String)
+            answers.add(viewModel.question?.possibleAnswers?.elementAt(2) as String)
         }
         if (binding.answerDBtn.isChecked) {
-            answers.add(binding.answerDBtn.text as String)
+            answers.add(viewModel.question?.possibleAnswers?.elementAt(3) as String)
         }
 
         if (binding.answerText.visibility == View.VISIBLE) {
@@ -272,18 +273,28 @@ class GameFragment : Fragment() {
         if (viewModel.question?.possibleAnswers?.size == 2) {
             binding.answerABtn.visibility = View.VISIBLE
             binding.answerBBtn.visibility = View.VISIBLE
-
-            binding.answerABtn.text = viewModel.question?.possibleAnswers?.elementAt(0)
-            binding.answerBBtn.text = viewModel.question?.possibleAnswers?.elementAt(1)
+            val a = viewModel.question?.possibleAnswers?.elementAt(0).toString()
+            val b = viewModel.question?.possibleAnswers?.elementAt(1)
+            val ra = resources.getString(resources.getIdentifier(a, "string", "com.example.kvizprogramiranje1"))
+            val rb = resources.getString(resources.getIdentifier(b, "string", "com.example.kvizprogramiranje1"))
+            binding.answerABtn.text = ra
+            binding.answerBBtn.text = rb
 
         } else if (viewModel.question?.possibleAnswers?.size == 3) {
             binding.answerABtn.visibility = View.VISIBLE
             binding.answerBBtn.visibility = View.VISIBLE
             binding.answerCBtn.visibility = View.VISIBLE
 
-            binding.answerABtn.text = viewModel.question?.possibleAnswers?.elementAt(0)
-            binding.answerBBtn.text = viewModel.question?.possibleAnswers?.elementAt(1)
-            binding.answerCBtn.text = viewModel.question?.possibleAnswers?.elementAt(2)
+            val a = viewModel.question?.possibleAnswers?.elementAt(0).toString()
+            val b = viewModel.question?.possibleAnswers?.elementAt(1).toString()
+            val c  = viewModel.question?.possibleAnswers?.elementAt(2).toString()
+            val ra = resources.getString(resources.getIdentifier(a, "string", "com.example.kvizprogramiranje1"))
+            val rb = resources.getString(resources.getIdentifier(b, "string", "com.example.kvizprogramiranje1"))
+            val rc = resources.getString(resources.getIdentifier(c, "string", "com.example.kvizprogramiranje1"))
+
+            binding.answerABtn.text = ra
+            binding.answerBBtn.text = rb
+            binding.answerCBtn.text = rc
 
         } else if (viewModel.question?.possibleAnswers?.size == 4) {
             binding.answerABtn.visibility = View.VISIBLE
@@ -291,11 +302,19 @@ class GameFragment : Fragment() {
             binding.answerCBtn.visibility = View.VISIBLE
             binding.answerDBtn.visibility = View.VISIBLE
 
+            val a = viewModel.question?.possibleAnswers?.elementAt(0).toString()
+            val b = viewModel.question?.possibleAnswers?.elementAt(1).toString()
+            val c  = viewModel.question?.possibleAnswers?.elementAt(2).toString()
+            val d = viewModel.question?.possibleAnswers?.elementAt(3).toString()
+            val ra = resources.getString(resources.getIdentifier(a, "string", "com.example.kvizprogramiranje1"))
+            val rb = resources.getString(resources.getIdentifier(b, "string", "com.example.kvizprogramiranje1"))
+            val rc = resources.getString(resources.getIdentifier(c, "string", "com.example.kvizprogramiranje1"))
+            val rd = resources.getString(resources.getIdentifier(d, "string", "com.example.kvizprogramiranje1"))
 
-            binding.answerABtn.text = viewModel.question?.possibleAnswers?.elementAt(0)
-            binding.answerBBtn.text = viewModel.question?.possibleAnswers?.elementAt(1)
-            binding.answerCBtn.text = viewModel.question?.possibleAnswers?.elementAt(2)
-            binding.answerDBtn.text = viewModel.question?.possibleAnswers?.elementAt(3)
+            binding.answerABtn.text = ra
+            binding.answerBBtn.text = rb
+            binding.answerCBtn.text = rc
+            binding.answerDBtn.text = rd
 
         }
     }
@@ -321,7 +340,10 @@ class GameFragment : Fragment() {
     }
 
     private fun updateQuestionText() {
-        binding.questionText.text = viewModel.question?.questionText.toString()
+        val q = viewModel.question?.questionText.toString()
+        val r = resources.getString(resources.getIdentifier(q, "string", "com.example.kvizprogramiranje1"))
+        binding.questionText.text = r
+
     }
 
     private fun updateScoreText() {
@@ -345,4 +367,6 @@ class GameFragment : Fragment() {
         )
         view.findNavController().navigate(R.id.action_gameFragment_to_score_fragment, bundle)
     }
+
+
 }

@@ -33,6 +33,7 @@ class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
             penaltyPoints = 5
         } else if (mode == 2) {
             questionsList = questionSingletonData.giveMediumQuiz(questionNumber)
+            Log.i("MainActivity", questionsList.toString())
             points = 12
             penaltyPoints = 4
         } else {

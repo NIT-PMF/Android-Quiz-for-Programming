@@ -65,4 +65,281 @@
     <string name="denied_permission">You denied the permission</string>
     <string name="not_correct_password">Incorrect Password</string>
 
+
+    <!-- Questions -->
+    <string name="hard1">What is the output of the following code?</string>
+    <string name="hard1_ans1">i is 5 isPrime is True</string>
+    <string name="hard1_ans2">i is 5 isPrime is False</string>
+    <string name="hard1_ans3">i is 6 isPrime is True</string>
+    <string name="hard1_ans4">i is 6 isPrime is False</string>
+
+    <string name="hard2">Suppose we have two sets A &#38; B, then A &#60; B is?</string>
+    <string name="hard2_ans1">True if len(A) is less than len(B).</string>
+    <string name="hard2_ans2">True if A is a proper subset of B.</string>
+    <string name="hard2_ans3">True if the elements in A when compared are less than the elements in B.</string>
+    <string name="hard2_ans4">True if A is a proper superset of B.</string>
+
+    <string name="hard3">Which options are correct to create an empty set in Python?</string>
+    <string name="hard3_ans1">{}</string>
+    <string name="hard3_ans2">[]</string>
+    <string name="hard3_ans3">()</string>
+    <string name="hard3_ans4">set()</string>
+
+    <string name="hard4">In python3 what does // operator do?</string>
+    <string name="hard4_ans1">Float division</string>
+    <string name="hard4_ans2">returns remainder</string>
+    <string name="hard4_ans3">same as a**b</string>
+    <string name="hard4_ans4">Integer division</string>
+
+    <string name="hard5">What are the base cases in the following recursive function?</string>
+    <string name="hard5_ans1">n>0</string>
+    <string name="hard5_ans2">n&#60;=0</string>
+    <string name="hard5_ans3">no base cases</string>
+    <string name="hard5_ans4">n&#60;0</string>
+
+    <string name="hard6">What is the output of the following code for print(f2(2, 0))?</string>
+    <string name="hard6_ans1">0</string>
+    <string name="hard6_ans2">1</string>
+    <string name="hard6_ans3">2</string>
+    <string name="hard6_ans4">3</string>
+
+
+    <string name="hard7">What relationship is appropriate for Student and Person?</string>
+    <string name="hard7_ans1">association</string>
+    <string name="hard7_ans2">composition</string>
+    <string name="hard7_ans3">inheritance</string>
+
+    <string name="hard8">What method is used to return the length of array foo?</string>
+
+
+    <string name="hard9">What methods are used to remove an element from an array?</string>
+    <string name="hard9_ans1">remove()</string>
+    <string name="hard9_ans2">pop()</string>
+    <string name="hard9_ans3">delete()</string>
+    <string name="hard9_ans4">clear() </string>
+
+    <string name="hard10">What methods are used to join two existing sets in Python?</string>
+    <string name="hard10_ans1">join()</string>
+    <string name="hard10_ans2">add()</string>
+    <string name="hard10_ans3">union()</string>
+    <string name="hard10_ans4">update()</string>
+
+    <string name="hard11">To convert a string to lowercase, what Python function can be used?</string>
+
+    <string name="hard12">In what ways can we add values to a python array?</string>
+    <string name="hard12_ans1">add()</string>
+    <string name="hard12_ans2">extend()</string>
+    <string name="hard12_ans3">insert(i,x)</string>
+    <string name="hard12_ans4">join()</string>
+
+
+    <string name="hard13">What is the difference between “is” and “==”?</string>
+    <string name="hard13_ans1">is checks identity</string>
+    <string name="hard13_ans2">== checks equality</string>
+    <string name="hard13_ans3">they are the same</string>
+    <string name="hard13_ans4">is checks strings</string>
+
+
+    <string name="hard14">What is the output of this code?</string>
+    <string name="hard14_ans1">array(‘d’, [1.1, 2.1, 3.1, 3.4])</string>
+    <string name="hard14_ans2">array(‘d’, [1.1, 2.1, 3.1, 3.4, 4.5, 6.3, 6.8])</string>
+    <string name="hard14_ans3">array(‘d’, [1.1, 2.1, 3.8, 3.1, 3.4, 4.5, 6.3, 6.8])</string>
+
+    <string name="hard15">How will you convert a string S to a list in python?</string>
+
+
+    <string name="hard16">What are Python packages?</string>
+    <string name="hard16_ans1">namespaces containing modules</string>
+    <string name="hard16_ans2">namespaces containing single module</string>
+    <string name="hard16_ans3">helper function</string>
+
+
+
+    <string name="medium1">Suppose a given list [1,2,3,4], what remains after list.pop(1) in Python?</string>
+    <string name="medium1_ans1">[2,3,4]</string>
+    <string name="medium1_ans2">[1,2,3]</string>
+    <string name="medium1_ans3">[1,3,4]</string>
+
+
+    <string name="medium2">What is the output of the following code?</string>
+    <string name="medium2_ans1">[‘ab’, ‘cd’]</string>
+    <string name="medium2_ans2">[‘AB’, ‘CD’]</string>
+    <string name="medium2_ans3">[Ab, Cd]</string>
+
+    <string name="medium3">Which of the following function is incorrect??</string>
+    <string name="medium3_ans1">range(0, 3.5)</string>
+    <string name="medium3_ans2">range(10, 4, -1)</string>
+    <string name="medium3_ans3">range(1, 3, 1)</string>
+    <string name="medium3_ans4">range(2.5, 4.5)</string>
+
+    <string name="medium4">Can Python functions return multiple variables?</string>
+
+
+    <string name="medium5">What is the output of the following code?</string>
+    <string name="medium5_ans1">Hello foo and bin</string>
+    <string name="medium5_ans2">Hello {name1} and {name2}</string>
+    <string name="medium5_ans3">Error</string>
+    <string name="medium5_ans4">Hello and</string>
+
+    <string name="medium6">Write different ways to initialize an empty list in Python?</string>
+
+    <string name="medium7">What types can a split() function split?</string>
+
+    <string name="medium8">How would you convert hexadecimal "A" to int using int() function in Python? (without spaces)</string>
+
+
+    <string name="medium9">What is the number of iterations in the following loop:</string>
+    <string name="medium9_ans1">2*n</string>
+    <string name="medium9_ans2">n</string>
+    <string name="medium9_ans3">n+1</string>
+    <string name="medium9_ans4">n-1</string>
+
+
+    <string name="medium10">How will you randomizes the items of a list LST in place?</string>
+
+    <string name="medium11">How will you capitalizes first letter of string?</string>
+    <string name="medium11_ans1">upper()</string>
+    <string name="medium11_ans2">capitalize()</string>
+    <string name="medium11_ans3">capitalizeLetter()</string>
+    <string name="medium11_ans4">capitalizeFirstLetter()</string>
+
+
+    <string name="medium12">How will you convert a string to all uppercase?</string>
+
+    <string name="medium13">How will you compare two lists in Python?</string>
+    <string name="medium13_ans1">compare(list1, list2)</string>
+    <string name="medium13_ans2">cmp(list1, list2)</string>
+    <string name="medium13_ans3">list1 == list2</string>
+    <string name="medium13_ans4">list1.returnAll(list2)</string>
+
+
+    <string name="medium14">What is the output of the folowing code?</string>
+    <string name="medium14_ans1">LEARN PYTHON</string>
+    <string name="medium14_ans2">learn python</string>
+    <string name="medium14_ans3">lEAN pYTHON</string>
+    <string name="medium14_ans4">Learn Python</string>
+
+
+    <string name="medium15">What is the result of multiplying the string ‘cat’ by 3.?</string>
+    <string name="medium15_ans1">cat3</string>
+    <string name="medium15_ans2">ERROR</string>
+    <string name="medium15_ans3">catcatcat</string>
+    <string name="medium15_ans4">None of the above</string>
+
+
+    <string name="medium16">What is the result of multiplying a list [1,2] by 3?</string>
+    <string name="medium16_ans1">[1,2,1,2]</string>
+    <string name="medium16_ans2">[1,2,3]</string>
+    <string name="medium16_ans3">ERROR</string>
+    <string name="medium16_ans4">[2,6]</string>
+
+
+    <string name="easy1">Is python case sensitive?</string>
+    <string name="easy1_ans1">Yes</string>
+    <string name="easy1_ans2">No</string>
+
+
+
+    <string name="easy2">What is type conversion for ord() in Python?</string>
+    <string name="easy2_ans1">converts characters into integer</string>
+    <string name="easy2_ans2">converts integers into character</string>
+    <string name="easy2_ans3">converts integers into hexadecimal</string>
+
+
+    <string name="easy3">Difference between Ptyhon Arrays and lists?</string>
+    <string name="easy3_ans1">Lists have larger storage capacity</string>
+    <string name="easy3_ans2">Arrays can hold only a single type of data</string>
+    <string name="easy3_ans3">There is no object type of array in Python</string>
+
+    <string name="easy4">What is the output of the following code?</string>
+    <string name="easy4_ans1">type `int`</string>
+    <string name="easy4_ans2">type `type`</string>
+    <string name="easy4_ans3">0</string>
+    <string name="easy4_ans4">`Error`</string>
+
+    <string name="easy5">What is called when a function is defined inside a class?</string>
+    <string name="easy5_ans1">Module</string>
+    <string name="easy5_ans2">Class`</string>
+    <string name="easy5_ans3">Another Function</string>
+    <string name="easy5_ans4">Method</string>
+
+
+    <string name="easy6">Which of the following is a logical NOT operator?</string>
+    <string name="easy6_ans1">&#38;&#38;</string>
+    <string name="easy6_ans2">!</string>
+    <string name="easy6_ans3">&#38;</string>
+    <string name="easy6_ans4">null</string>
+
+
+    <string name="easy7">What is the maximum number of dimensions of array in Python or C++?</string>
+    <string name="easy7_ans1">Two</string>
+    <string name="easy7_ans2">Eight</string>
+    <string name="easy7_ans3">Fifteen</string>
+    <string name="easy7_ans4">No limit</string>
+
+
+    <string name="easy8">Give at least 4 functions that List object supports in Python (example `reverse`)</string>
+
+
+
+    <string name="easy9">Which of these is the correct syntax to increment number by 1 in Python language?</string>
+    <string name="easy9_ans1">a+=1</string>
+    <string name="easy9_ans2">a++</string>
+    <string name="easy9_ans3">a = a + 1</string>
+    <string name="easy9_ans4">a =+ 1</string>
+
+
+    <string name="easy10">Which of these statements is correct?</string>
+    <string name="easy10_ans1">Python is an interpreted language</string>
+    <string name="easy10_ans2">Python emphasises code readability</string>
+    <string name="easy10_ans3">Python is purely a functional language</string>
+    <string name="easy10_ans4">Python`s extension is .py</string>
+
+    <string name="easy11">What operator do you use to concatenate two lists?</string>
+
+
+    <string name="easy12">How to take the absolute value of an integer?</string>
+    <string name="easy12_ans1">abs(x)</string>
+    <string name="easy12_ans2">absolute(x)</string>
+    <string name="easy12_ans3">x.absolute</string>
+    <string name="easy12_ans4">int(x)</string>
+
+
+    <string name="easy13">What is the output of the following code?</string>
+    <string name="easy13_ans1">ERROR</string>
+    <string name="easy13_ans2">5</string>
+    <string name="easy13_ans3">23</string>
+    <string name="easy13_ans4">3</string>
+
+
+    <string name="easy14">What is the output of the following code?</string>
+    <string name="easy14_ans1">aBCD</string>
+    <string name="easy14_ans2">abcd</string>
+    <string name="easy14_ans3">Abcd</string>
+    <string name="easy14_ans4">abcD</string>
+
+
+    <string name="easy15">What does len() do?</string>
+    <string name="easy15_ans1">determine length of the string</string>
+    <string name="easy15_ans2">determine length of a list</string>
+    <string name="easy15_ans3">determine length of an array</string>
+
+    <string name="easy16">What are the built-in types of python?</string>
+    <string name="easy16_ans1">Lists</string>
+    <string name="easy16_ans2">Floating-point</string>
+    <string name="easy16_ans3">Boolean</string>
+    <string name="easy16_ans4">Built-in functions</string>
+
+
+    <string name="easy17">What is the output of the following code?</string>
+    <string name="easy17_ans1">[‘edureka’, ‘python’]</string>
+    <string name="easy17_ans2">edureka python</string>
+    <string name="easy17_ans3">[`edurekapython`]</string>
+    <string name="easy17_ans4">edurekapython</string>
+
+
+
+
+
+
 </resources>

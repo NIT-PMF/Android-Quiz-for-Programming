@@ -9,7 +9,7 @@ import com.example.kvizprogramiranje1.entity.User
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.internal.synchronized
 
-@Database(entities = [User::class], version = 20, exportSchema = false)
+@Database(entities = [User::class], version = 2, exportSchema = false)
 abstract  class AppDB: RoomDatabase(){
 
 

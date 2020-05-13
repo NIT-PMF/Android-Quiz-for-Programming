@@ -14,70 +14,70 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
         mutableListOf(
             Question(
                 21,
-                "What is the output of the following code?",
+                "hard1",
                 "hard2.jpg",
-                mutableListOf("i is 5 isPrime is True", "i is 5 isPrime is False", "i is 6 isPrime is True", "i is 6 isPrime is False"),
-                mutableListOf("i is 5 isPrime is False"),
+                mutableListOf("hard1_ans1", "hard1_ans2", "hard1_ans3", "hard1_ans4"),
+                mutableListOf("hard1_ans2"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 22,
-                "Suppose we have two sets A & B, then A<B is?",
+                "hard2",
                 null,
-                mutableListOf("True if len(A) is less than len(B).", "True if A is a proper subset of B.", "True if the elements in A when compared are less than the elements in B.", "True if A is a proper superset of B."),
-                mutableListOf("True if A is a proper subset of B."),
+                mutableListOf("hard2_ans1", "hard2_ans2", "hard2_ans3", "hard2_ans4"),
+                mutableListOf("hard2_ans2"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 23,
-                "Which options are correct to create an empty set in Python?",
+                "hard4",
                 null,
-                mutableListOf("{}", "[]", "()", "set()"),
-                mutableListOf("set()"),
+                mutableListOf("hard3_ans1", "hard3_ans2", "hard3_ans3", "hard3_ans4"),
+        mutableListOf("hard3_ans4"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 24,
-                "In python3 what does // operator do?",
+                "hard4",
                 null,
-                mutableListOf("Float division", "returns remainder", "same as a**b", "Integer division"),
-                mutableListOf("Integer division"),
+                mutableListOf("hard4_ans1", "hard4_ans2", "hard4_ans3", "hard4_ans4"),
+                mutableListOf("hard4_ans4"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 25,
-                "What are the base cases in the following recursive function?",
+                "hard5",
                 "hard3.jpg",
-                mutableListOf("n>0", "n<=0", "no base cases", "n<0"),
-                mutableListOf("n<=0"),
+                mutableListOf("hard5_ans1", "hard5_ans2", "hard5_ans3", "hard5_ans4"),
+                mutableListOf("hard5_ans2"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 26,
-                "What is the output of the following code for print(f2(2, 0))?",
+                "hard6",
                 "hard4.jpg",
-                mutableListOf("0", "1", "2", "3"),
-                mutableListOf("0"),
+                mutableListOf("hard6_ans1", "hard6_ans2", "hard6_ans3", "hard6_ans4"),
+                mutableListOf("hard6_ans1"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 27,
-                "What relationship is appropriate for Student and Person?",
+                "hard7",
                 null,
-                mutableListOf("association", "composition", "inheritance"),
-                mutableListOf("inheritance"),
+                mutableListOf("hard7_ans1", "hard7_ans2", "hard7_ans3"),
+                mutableListOf("hard7_ans3"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 28,
-                "What method is used to return the length of array foo?",
+                "hard8",
                 null,
                 null,
                 mutableListOf("len(foo)"),
@@ -86,85 +86,87 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             ),
             Question(
                 29,
-                "What methods are used to remove an element from an array?",
+                "hard9",
                 null,
-                mutableListOf("remove()", "pop()", "delete()", "clear()"),
-                mutableListOf("remove()", "pop()"),
+                mutableListOf("hard9_ans1", "hard9_ans2", "hard9_ans3", "hard9_ans4"),
+                mutableListOf("hard9_ans1", "hard9_ans2"),
                 false,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
             ),
             Question(
                 30,
-                "What methods are used to join two existing sets in Python?",
+                "hard10",
                 null,
-                mutableListOf("join()", "add()", "union()", "update()"),
-                mutableListOf("union()", "update()"),
+                mutableListOf("hard10_ans1", "hard10_ans2", "hard10_ans3", "hard10_ans4"),
+                mutableListOf("hard10_ans3", "hard10_ans4"),
                 false,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
             ),
             Question(
                 31,
-                "To convert a string to lowercase, what Python function can be used?",
+                "hard11",
                 null,
                 null,
                 mutableListOf("lower()"),
                 false,
                 questionSingletonData.QUESTION_TEXT
             ),
-            Question(
-                32,
-                "What are Python packages?",
-                null,
-                mutableListOf("namespaces containing modules", "namespaces containing single module", "helper function"),
-                mutableListOf("namespaces containing modules"),
-                false,
-                questionSingletonData.QUESTION_SINGLE_CHOICE
-            ),
-            Question(
-                33,
-                "To convert a string to lowercase, what Python function can be used?",
-                null,
-                null,
-                mutableListOf("lower()"),
-                false,
-                questionSingletonData.QUESTION_TEXT
-            ),
+
             Question(
                 34,
-                "In what ways can we add values to a python array?",
+                "hard12",
                 null,
-                mutableListOf("add()", "extend()", "insert(i,x)", "join()"),
-                mutableListOf("extend()", "insert(i,x)"),
+                mutableListOf("hard12_ans1", "hard12_ans2", "hard12_ans3", "hard12_ans4"),
+                mutableListOf("hard12_ans2", "hard12_ans3"),
+                false,
+                questionSingletonData.QUESTION_MULTIPLE_CHOICE
+            ),
+            Question(
+                36,
+                "hard13",
+                null,
+                mutableListOf("hard13_ans1", "hard13_ans2", "hard13_ans3", "hard13_ans4"),
+                mutableListOf("hard13_ans1", "hard13_ans2"),
                 false,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
             ),
             Question(
                 35,
-                "What is the output of this code?",
+                "hard14",
                 "hard5.jpg",
-                mutableListOf("array(‘d’, [1.1, 2.1, 3.1, 3.4])", "array(‘d’, [1.1, 2.1, 3.1, 3.4, 4.5, 6.3, 6.8])", "array(‘d’, [1.1, 2.1, 3.8, 3.1, 3.4, 4.5, 6.3, 6.8])"),
-                mutableListOf("array(‘d’, [1.1, 2.1, 3.1, 3.4])", "array(‘d’, [1.1, 2.1, 3.1, 3.4, 4.5, 6.3, 6.8])", "array(‘d’, [1.1, 2.1, 3.8, 3.1, 3.4, 4.5, 6.3, 6.8])"),
+                mutableListOf("hard14_ans1", "hard14_ans2", "hard14_ans3"),
+                mutableListOf("hard14_ans1", "hard14_ans3", "hard14_ans3"),
                 true,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
             ),
             Question(
-                36,
-                "What is the difference between “is” and “==”?",
-                null,
-                mutableListOf("'is' checks identity", "== checks equality", "they are the same", "'is' checks strings"),
-                mutableListOf("'is' checks identity", "== checks equality"),
-                false,
-                questionSingletonData.QUESTION_MULTIPLE_CHOICE
-            ),
-            Question(
                 37,
-                "How will you convert a string S to a list in python?",
+                "hard15",
                 null,
                 null,
                 mutableListOf("list(S)"),
                 false,
                 questionSingletonData.QUESTION_TEXT
+            ),
+            Question(
+                32,
+                "hard16",
+                null,
+                mutableListOf("hard16_ans1", "hard16_ans2", "hard16_ans3"),
+                mutableListOf("hard16_ans1"),
+                false,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
+            Question(
+                32,
+                "hard16",
+                null,
+                mutableListOf("hard16_ans1", "hard16_ans2", "hard16_ans3"),
+                mutableListOf("hard16_ans1"),
+                false,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
             )
+
         )
     )
 
@@ -172,34 +174,34 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
         mutableListOf(
             Question(
                 11,
-                "Suppose a given list [1,2,3,4], what remains after list.pop(1) in Python?",
+                "medium1",
                 null,
-                mutableListOf("[2,3,4]", "[1,2,3]", "[1,3,4]"),
-                mutableListOf("[1,3,4]"),
+                mutableListOf("medium1_ans1", "medium1_ans2", "medium1_ans3"),
+                mutableListOf("medium1_ans3"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 12,
-                "What is the output of the following code?",
+                "medium2",
                 "medium1.jpg",
-                mutableListOf("[‘ab’, ‘cd’]", "[‘AB’, ‘CD’]", "['Ab', 'Cd']"),
-                mutableListOf("[‘ab’, ‘cd’]"),
+                mutableListOf("medium2_ans1", "medium2_ans2", "medium2_ans3"),
+                mutableListOf("medium2_ans1"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 13,
-                "Which of the following function is incorrect??",
+                "medium3",
                 null,
-                mutableListOf("range(0, 3.5)", "range(10, 4, -1)", "range(1, 3, 1)", "range(2.5, 4.5)"),
-                mutableListOf("range(0, 3.5)", "range(2.5, 4.5)"),
+                mutableListOf("medium3_ans1", "medium3_ans2","medium3_ans3","medium3_ans4"),
+                mutableListOf("medium3_ans1", "medium3_ans4"),
                 false,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
             ),
             Question(
                 14,
-                "Can Python functions return multiple variables?",
+                "medium4",
                 null,
                 null,
                 mutableListOf("yes"),
@@ -208,43 +210,26 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             ),
             Question(
                 15,
-                "What is the output of the following code?",
+                "medium5",
                 "medium3.jpg",
-                mutableListOf("Hello foo and bin", "Hello {name1} and {name2}", "Error", "Hello and"),
-                mutableListOf("Hello foo and bin"),
+                mutableListOf("medium5_ans1", "medium5_ans2", "medium5_ans3", "medium5_ans4"),
+                mutableListOf("medium5_ans1"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
-                16,
-                "Write different ways to initialize an empty list in Python?",
-                null,
-                null,
-                mutableListOf("[]", "=[]", "list()", "=list()"),
-                false,
-                questionSingletonData.QUESTION_TEXT
-            ),
-            Question(
                 17,
-                "What types can a split() function split?",
+                "medium7",
                 null,
                 null,
                 mutableListOf("string"),
                 false,
                 questionSingletonData.QUESTION_TEXT
             ),
-            Question(
-                18,
-                "What is the output of the following code?",
-                "medium3.jpg",
-                mutableListOf("Hello foo and bin", "Hello {name1} and {name2}", "Error", "Hello and"),
-                mutableListOf("Hello foo and bin"),
-                true,
-                questionSingletonData.QUESTION_SINGLE_CHOICE
-            ),
+
             Question(
                 19,
-                "How would you convert hexadecimal \"A\" to int using int() function in Python? (without spaces)",
+                "medium8",
                 null,
                 null,
                 mutableListOf("int(\"A\",16)"),
@@ -253,16 +238,16 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             ),
             Question(
                 20,
-                "What is the number of iterations in the following loop:",
+                "medium9",
                 "medium4.jpg",
-                mutableListOf("2*n", "n", "n+1", "n-1"),
-                mutableListOf("n"),
+                mutableListOf("medium9_ans1", "medium9_ans2", "medium9_ans3", "medium9_ans4"),
+                mutableListOf("medium9_ans2"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 21,
-                "How will you randomizes the items of a list LST in place?",
+                "medium10",
                 null,
                 null,
                 mutableListOf("shuffle(LST)"),
@@ -271,16 +256,16 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             ),
             Question(
                 22,
-                "How will you capitalizes first letter of string?",
+                "medium11",
                 null,
-                mutableListOf("upper()", "capitalize()", "capitalizeLetter()", "capitalizeFirstLetter()"),
-                mutableListOf("capitalize()"),
+                mutableListOf("medium11_ans1", "medium11_ans2", "medium11_ans3", "medium11_ans4"),
+                mutableListOf("medium11_ans2"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 23,
-                "How will you convert a string to all uppercase?",
+                "medium12",
                 null,
                 null,
                 mutableListOf("upper()"),
@@ -289,37 +274,46 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             ),
             Question(
                 24,
-                "How will you compare two lists in Python?",
+                "medium13",
                 null,
-                mutableListOf("compare(list1, list2)", "cmp(list1, list2)", "list1 == list2",  "list1.returnAll(list2)"),
-                mutableListOf("cmp(list1, list2)"),
+                mutableListOf("medium13_ans1", "medium13_ans2", "medium13_ans3",  "medium13_ans4"),
+                mutableListOf("medium13_ans1"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 25,
-                "What is the output of the folowing code?",
+                "medium14",
                 "medium5.jpg",
-                mutableListOf("LEARN PYTHON", "learn python", "lEAN pYTHON",  "Learn Python"),
-                mutableListOf("Learn Python"),
+                mutableListOf("medium14_ans1", "medium14_ans2", "medium14_ans3",  "medium14_ans4"),
+                mutableListOf("medium14_ans4"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 26,
-                "What is the result of multiplying the string ‘cat’ by 3.?",
+                "medium15",
                 null,
-                mutableListOf("cat3", "ERROR", "catcatcat",  "None of the above"),
-                mutableListOf("catcatcat"),
+                mutableListOf("medium15_ans1", "medium15_ans2", "medium15_ans3",  "medium15_ans4"),
+                mutableListOf("medium15_ans3"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 27,
-                "What is the result of multiplying a list [1,2] by 3?",
+                "medium16",
                 "medium5.jpg",
-                mutableListOf("[1,2,1,2]", "[1,2,3]", "ERROR",  "[2,6]"),
-                mutableListOf("[1,2,1,2]"),
+                mutableListOf("medium16_ans1", "medium16_ans2", "medium16_ans3",  "medium16_ans4"),
+                mutableListOf("medium16_ans1"),
+                false,
+                questionSingletonData.QUESTION_SINGLE_CHOICE
+            ),
+            Question(
+                27,
+                "medium16",
+                "medium5.jpg",
+                mutableListOf("medium16_ans1", "medium16_ans2", "medium16_ans3",  "medium16_ans4"),
+                mutableListOf("medium16_ans1"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             )
@@ -329,70 +323,70 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
         mutableListOf(
             Question(
                 1,
-                "Is python case sensitive?",
+                "easy1",
                 null,
-                mutableListOf("Yes", "No"),
-                mutableListOf("Yes"),
+                mutableListOf("easy1_ans1", "easy1_ans2"),
+                mutableListOf("easy1_ans1"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 2,
-                "What is type conversion for ord() in Python?",
+                "easy2",
                 null,
-                mutableListOf("converts characters into integer", "converts integers into character", "converts integers into hexadecimal"),
-                mutableListOf("converts characters to integer"),
+                mutableListOf("easy2_ans1", "easy2_ans2", "easy2_ans3"),
+                mutableListOf("easy2_ans1"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 3,
-                "Difference between Ptyhon Arrays and lists?",
+                "easy3",
                 null,
-                mutableListOf("Lists have larger storage capacity","Arrays can hold only a single type of data", "There is no object type of array in Python"),
-                mutableListOf("Arrays can hold only a single type of data"),
+                    mutableListOf("easy3_ans1","easy3_ans2", "easy3_ans3"),
+                mutableListOf("easy3_ans2"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 4,
-                "What is the output of the following code?",
+                "easy4",
                 "easy1.jpg",
-                mutableListOf("type 'int'", "type 'type'", "0", "'Error'"),
-                mutableListOf("type 'type'"),
+                mutableListOf("easy4_ans1", "easy4_ans2", "easy4_ans3", "easy4_ans4"),
+                mutableListOf("easy4_ans2"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 5,
-                "What is called when a function is defined inside a class?",
+                "easy5",
                 null,
-                mutableListOf("Module", "Class", "Another Function", "Method"),
-                mutableListOf("Method"),
+                mutableListOf("easy5_ans1", "easy5_ans2", "easy5_ans3", "easy5_ans4"),
+                mutableListOf("easy5_ans4"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 6,
-                "Which of the following is a logical NOT operator?",
+                "easy6",
                 null,
-                mutableListOf("&&", "!", "&", "null"),
-                mutableListOf("!"),
+                    mutableListOf("easy6_ans1", "easy6_ans2", "easy6_ans3", "easy6_ans4"),
+                mutableListOf("easy6_ans2"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 7,
-                "What is the maximum number of dimensions of array in Python or C++?",
+                "easy7",
                 null,
-                mutableListOf("Two", "Eight", "Fifteen", "No limit"),
-                mutableListOf("No limit"),
+                mutableListOf("easy7_ans1", "easy7_ans2", "easy7_ans3", "easy7_ans4"),
+                mutableListOf("easy7_ans4"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 8,
-                "Give at least 4 functions that List object supports in Python (example 'reverse')",
+                "easy8",
                 null,
                 null,
                 mutableListOf("append", "insert", "remove", "pop", "clear", "count", "sort", "copy", "reverse"),
@@ -401,25 +395,25 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             ),
             Question(
                 9,
-                "Which of these is the correct syntax to increment number by 1 in Python language?",
+                "easy9",
                 null,
-                mutableListOf("a+=1", "a++", "a = a + 1", "a =+ 1"),
-                mutableListOf("a+=1", "a++", "a = a + 1"),
+                mutableListOf("easy9_ans1", "easy9_ans2", "easy9_ans3", "easy9_ans4"),
+                mutableListOf("easy9_ans1", "easy9_ans2", "easy9_ans3"),
                 false,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
             ),
             Question(
                 10,
-                "Which of these statements is correct?",
+                "easy10",
                 null,
-                mutableListOf("Python is an interpreted language", "Python emphasises code readability", "Python is purely a functional language", "Python's extension is .py"),
-                mutableListOf("Python is an interpreted language", "Python emphasises code readability", "Python's extension is .py"),
+                mutableListOf("easy10_ans1", "easy10_ans2", "easy10_ans3", "easy10_ans4"),
+                mutableListOf("easy10_ans1", "easy10_ans2", "easy10_ans4"),
                 false,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
             ),
             Question(
                 11,
-                "What operator do you use to concatenate two lists?",
+                "easy11",
                 null,
                 null,
                 mutableListOf("+"),
@@ -428,55 +422,55 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
             ),
             Question(
                 12,
-                "How to take the absolute value of an integer?",
+                "easy12",
                 null,
-                mutableListOf("abs(x)", "absolute(x)", "int(x)", "x.absolute"),
-                mutableListOf("abx(x)"),
+                mutableListOf("easy12_ans1", "easy12_ans2", "easy12_ans3", "easy12_ans4"),
+                mutableListOf("easy12_ans1"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 13,
-                "What is the output of the following code?",
+                "easy13",
                 "easy3.jpg",
-                mutableListOf("ERROR", "5", "23", "3"),
-                mutableListOf("5"),
+                mutableListOf("easy13_ans1", "easy13_ans2", "easy13_ans3", "easy13_ans4"),
+                mutableListOf("easy13_ans2"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 14,
-                "What is the output of the following code?",
+                "easy14",
                 "easy4.jpg",
-                mutableListOf("aBCD", "abcd", "Abcd", "abcD"),
-                mutableListOf("abcd"),
+                mutableListOf("easy14_ans1", "easy14_ans2", "easy14_ans3", "easy14_ans4"),
+                mutableListOf("easy14_ans2"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             ),
             Question(
                 15,
-                "What does len() do?",
+                "easy15",
                 null,
-                mutableListOf("determine length of the string", "determine length of a list", "determine length of an array"),
-                mutableListOf("determine length of the string", "determine length of a list", "determine length of an array"),
+                mutableListOf("easy15_ans1", "easy15_ans2", "easy15_ans3"),
+                mutableListOf("easy15_ans1", "easy15_ans2", "easy15_ans3"),
                 false,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
             ),
             Question(
                 16,
-                "What are the built-in types of python?",
+                "easy16",
                 null,
-                mutableListOf("Lists", "Floating-point", "Boolean", "Built-in functions"),
-                mutableListOf("Floating-point", "Boolean", "Built-in functions"),
+                mutableListOf("easy16_ans1", "Feasy16_ans2", "easy16_ans3", "easy16_ans4"),
+                mutableListOf("easy16_ans2", "easy16_ans3", "easy16_ans3"),
                 false,
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
             ),
             Question(
                 17,
-                "What is the output of the following code?",
+                "easy17",
                 "easy5.jpg",
-                mutableListOf("[‘edureka’, ‘python’]", "edureka python", "['edurekapython']", "edurekapython"),
-                mutableListOf("[‘edureka’, ‘python’]"),
+                mutableListOf("easy17_ans1", "easy17_ans2", "easy17_ans3", "easy17_ans4"),
+                mutableListOf("easy17_ans1"),
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             )

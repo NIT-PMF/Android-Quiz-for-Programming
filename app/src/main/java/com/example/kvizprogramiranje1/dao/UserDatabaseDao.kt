@@ -16,7 +16,7 @@ interface UserDatabaseDao {
     @Update
     fun update(user: User)
 
-    @Query ("update quiz_users_table SET userScore = :score where UserId = :userId")
+    @Query ("update quiz_users_table SET score = :score where UserId = :userId")
     fun updateUser(userId:Int, score:Int)
 
     @Query("DELETE FROM quiz_users_table WHERE UserId = :id")
@@ -28,7 +28,7 @@ interface UserDatabaseDao {
     @Query("DELETE FROM quiz_users_table")
     fun clear()
 
-    @Query("SELECT * FROM quiz_users_table WHERE username = :username AND userPassword = :password")
+    @Query("SELECT * FROM quiz_users_table WHERE username = :username AND password = :password")
     fun getUserByPassword(username :String,password :String): User?
 
     @Query("SELECT * FROM quiz_users_table WHERE username = :username")
