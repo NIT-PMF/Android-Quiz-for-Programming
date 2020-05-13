@@ -7,14 +7,12 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.kvizprogramiranje1.R
-import com.example.kvizprogramiranje1.dao.User_dao
+import com.example.kvizprogramiranje1.dao.UserDatabaseDao
 import com.example.kvizprogramiranje1.database.AppDB
 import com.example.kvizprogramiranje1.databinding.ActivityMainBinding
 import com.example.kvizprogramiranje1.entity.User
@@ -31,11 +29,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var rulesFragment: RulesFragment
     private var player: MediaPlayer? = null
-    private lateinit var db: User_dao
+    private lateinit var db: UserDatabaseDao
     private lateinit var job: Job
     private lateinit var uiScope: CoroutineScope
     private lateinit var users :LiveData<List<User>>
 
+    @OptIn(InternalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = setContentView(this,
@@ -45,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         db = AppDB.getInstance(application).userDatabaseDao;
         job = Job()
         uiScope = CoroutineScope(Dispatchers.Main + job)
-        users = db.getUsers()
+        users = db.getAllUsers()
 
         if (player == null) {
             player = MediaPlayer.create(this, R.raw.classy_8_bit)
@@ -86,17 +85,17 @@ class MainActivity : AppCompatActivity() {
     fun onAddUser(username:String, password:String) {
         uiScope.launch {
             val user = User()
-            user.user_name = username
-            user.user_score = 0
-            user.user_password = password
+            user.username = username
+            user.userScore = 0
+            user.userPassword = password
             insert(user) 
-            Log.i("Main Activity", users.value?.get(0)?.user_name.toString())
+            Log.i("Main Activity", users.value?.get(0)?.username.toString())
         }
     }
 
     private suspend fun insert(user: User) {
         withContext(Dispatchers.IO) {
-            db.saveUser(user)
+            db.insert(user)
         }
     }
 

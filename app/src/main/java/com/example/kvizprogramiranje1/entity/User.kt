@@ -4,18 +4,17 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
-class User() {
+@Entity(tableName = "quiz_users_table")
+data class User(
     @PrimaryKey(autoGenerate = true)
-    var id:Int = 0
+    var userId: Int = 0,
 
     @ColumnInfo(name = "name")
-    var user_name:String = ""
+    var username: String = "",
 
     @ColumnInfo(name = "score")
-    var user_score:Int = 0
+    var userScore: Int = 0,
 
     @ColumnInfo(name = "password")
-    var user_password:String = ""
-
-}
+    var userPassword: String = ""
+)
