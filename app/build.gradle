@@ -33,6 +33,7 @@ android {
 dependencies {
     def nav_version = "2.3.0-alpha05"
     def lifecycle_version = "2.2.0"
+    def coroutine_version = '1.0.0'
 
     def room_version = "2.2.5"
     // Room and Lifecycle dependencies
@@ -43,6 +44,8 @@ dependencies {
 
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$room_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
 
     // optional - RxJava support for Room
     implementation "androidx.room:room-rxjava2:$room_version"

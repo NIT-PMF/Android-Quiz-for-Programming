@@ -9,12 +9,12 @@ data class User(
     @PrimaryKey(autoGenerate = true)
     var userId: Int = 0,
 
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "username")
     var username: String = "",
 
-    @ColumnInfo(name = "score")
+    @ColumnInfo(name = "userScore")
     var userScore: Int = 0,
 
-    @ColumnInfo(name = "password")
+    @ColumnInfo(name = "userPassword")
     var userPassword: String = ""
 )

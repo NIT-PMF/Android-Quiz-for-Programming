@@ -34,9 +34,9 @@ interface UserDatabaseDao {
     @Query("SELECT * FROM quiz_users_table WHERE username = :username")
     fun getUserByName(username: String): User?
 
-    @Query("SELECT * FROM quiz_users_table ORDER BY score DESC LIMIT 10")
+    @Query("SELECT * FROM quiz_users_table ORDER BY userScore DESC LIMIT 10")
     fun getUsers(): User?
 
-    @Query("SELECT * FROM quiz_users_table ORDER BY score DESC")
+    @Query("SELECT * FROM quiz_users_table ORDER BY userScore DESC")
     fun getAllUsers(): LiveData<List<User>>
 }

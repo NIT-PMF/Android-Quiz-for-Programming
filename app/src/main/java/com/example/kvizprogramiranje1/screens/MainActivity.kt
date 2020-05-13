@@ -1,5 +1,6 @@
 package com.example.kvizprogramiranje1.screens
 
+import android.app.Application
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -7,10 +8,14 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.kvizprogramiranje1.MainActivityViewModel
+import com.example.kvizprogramiranje1.MainActivityViewModelFactory
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.dao.UserDatabaseDao
 import com.example.kvizprogramiranje1.database.AppDB
@@ -33,6 +38,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var job: Job
     private lateinit var uiScope: CoroutineScope
     private lateinit var users :LiveData<List<User>>
+    @InternalCoroutinesApi
+    val dataSource = AppDB.getInstance(application).userDatabaseDao
 
     @OptIn(InternalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +52,10 @@ class MainActivity : AppCompatActivity() {
         job = Job()
         uiScope = CoroutineScope(Dispatchers.Main + job)
         users = db.getAllUsers()
+        val viewModelFactory = MainActivityViewModelFactory(dataSource, application)
+        val mainActivityViewModel =
+            ViewModelProvider(
+                this, viewModelFactory).get(MainActivityViewModel::class.java)
 
         if (player == null) {
             player = MediaPlayer.create(this, R.raw.classy_8_bit)
@@ -65,22 +76,28 @@ class MainActivity : AppCompatActivity() {
         Log.i("MainActivity", users.value.toString())
         val username: String = binding.usernamePt.text.toString()
         val password: String = binding.passwordPt.text.toString()
-        if (userSingletonData.findUser(username) != null) {
-                    showToast(applicationContext, getString(R.string.user_exists))
-                } else {
-
-                    if (checkUsername(username)) {
-                        onAddUser(username, password)
-                        Log.i("MainActivity", userSingletonData.getUserData().toString())
-                        val intent = Intent(this, MainQuizActivity::class.java)
-                        intent.putExtra("username", username)
-                        startActivity(intent)
-                    } else
-                        showToast(applicationContext, getString(R.string.toast_username))
-                }
-        val soundClick: MediaPlayer? = MediaPlayer.create(this, R.raw.click_sound)
-        soundClick?.start()
-    }
+        if (db.getUserByName(username) != null) {
+            if (db.getUserByPassword(username, password) == null) {
+                showToast(applicationContext, getString(R.string.not_correct_password))
+            } else {
+                //Log.i("MainActivity", userSingletonData.getUserData().toString())
+                val intent = Intent(this, MainQuizActivity::class.java)
+                intent.putExtra("username", username)
+                startActivity(intent)
+            }
+        } else {
+                if (checkUsername(username)) {
+                    onAddUser(username, password)
+                    //Log.i("MainActivity", userSingletonData.getUserData().toString())
+                    val intent = Intent(this, MainQuizActivity::class.java)
+                    intent.putExtra("username", username)
+                    startActivity(intent)
+                } else
+                    showToast(applicationContext, getString(R.string.toast_username))
+            }
+            val soundClick: MediaPlayer? = MediaPlayer.create(this, R.raw.click_sound)
+            soundClick?.start()
+        }
 
     fun onAddUser(username:String, password:String) {
         uiScope.launch {
