@@ -24,20 +24,16 @@
             <ImageView
                 android:id="@+id/app_logo_image"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="96dp"
                 android:layout_marginTop="@dimen/margin_logo"
                 android:contentDescription="@string/app_logo_description"
                 app:srcCompat="@drawable/app_logo" />
 
-            <View
-                android:id="@+id/divider"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginBottom="30dp"
-                android:layout_weight="1"
-                android:background="?android:attr/listDivider"
-                android:backgroundTint="@android:color/transparent" />
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
 
             <TextView
                 android:id="@+id/username_tv"
@@ -69,6 +65,36 @@
                 android:textColor="#FFB6C1"
                 android:textCursorDrawable="@drawable/text_cursor_cmd" />
 
+
+            <TextView
+                android:id="@+id/password_tv"
+                style="@style/quiz_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/design_default_color_on_secondary"
+                android:backgroundTint="@color/design_default_color_on_secondary"
+                android:labelFor="@+id/username_pt"
+                android:padding="8dp"
+                android:text="@string/type_your_password"
+                android:textColor="#DB073F" />
+
+            <EditText
+                android:id="@+id/password_pt"
+                style="@android:style/Widget.DeviceDefault.Light.EditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints="username"
+                android:background="@drawable/rectangle"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:padding="4dp"
+                android:textAlignment="center"
+                android:textColor="#FFB6C1"
+                android:textCursorDrawable="@drawable/text_cursor_cmd" />
 
             <Button
                 android:id="@+id/username_btn"

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ITKviz</string>
-    <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Upišite vaš Username:</string>
+    <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Upišite_vaš_Username:</string>
+    <string name="type_your_password"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Upišite_vaš_Password:</string>
+
     <string name="app_logo_description">Logo Aplikacije</string>
     <string name="done">Gotovo</string>
     <string name="hello_blank_fragment">Pozdrav</string>
@@ -43,6 +45,7 @@
     <string name="question_no_title">Broj Pitanja:</string>
     <string name="by_us">Od NIT</string>
     <string name="user_exists">Korisnik već postoji, izaberite drugo ime</string>
+    <string name="password_incorrect">Password nije ispravan</string>
     <string name="mute_unmute_music">Stišaj/Upali Muziku</string>
     <string name="check_highscores">Provjeri Bodove</string>
     <string name="highscores_for_list">Najviši Bodovi:</string>

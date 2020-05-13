@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">"ITQuiz"</string>
     <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Type_Your_Username:</string>
+    <string name="type_your_password"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Type_Your_Password:</string>
+
     <string name="app_logo_description">App Logo</string>
     <string name="done">Done</string>
 
@@ -54,6 +56,7 @@
     <string name="question_no_title">"Question Number: "</string>
     <string name="by_us">By NIT</string>
     <string name="user_exists">User Already Exists. Choose another</string>
+    <string name="password_incorrect">Password incorrect</string>
     <string name="mute_unmute_music">Mute/Unmute Music</string>
     <string name="check_highscores">Check Highscores</string>
     <string name="highscores_for_list">Highscores:</string>
