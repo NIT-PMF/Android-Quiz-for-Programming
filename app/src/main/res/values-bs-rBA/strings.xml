@@ -47,5 +47,7 @@
     <string name="check_highscores">Provjeri Bodove</string>
     <string name="highscores_for_list">Najviši Bodovi:</string>
     <string name="call_dialog"><font size="15" color="#ffffff">Treba ti Pomoć?</font></string>
+    <string name="permission">Zabranjen Pristup</string>
+    <string name="denied_permission">Zabranili ste Pristup</string>
 
 </resources>

@@ -18,6 +18,7 @@ import androidx.core.app.ShareCompat
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil.inflate
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.kvizprogramiranje1.R
@@ -53,7 +54,7 @@ class GameFragment : Fragment() {
         val gameDifficulty = arguments?.getInt("mode") ?: 1
 
         viewModelFactory = GameViewModelFactory(numbQuestion, gameDifficulty)
-        viewModel = ViewModelProviders.of(this, viewModelFactory)
+        viewModel = ViewModelProvider(this, viewModelFactory)
             .get(GameViewModel::class.java)
 
         if (viewModel.popUpClicked) {

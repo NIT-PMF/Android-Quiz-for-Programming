@@ -1,11 +1,14 @@
 package com.example.kvizprogramiranje1.screens
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.ConfigurationCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
@@ -15,6 +18,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.ActivityMainQuizBinding
+import com.example.kvizprogramiranje1.logic.applyLanguage
 import com.example.kvizprogramiranje1.screens.game.GameViewModel
 import com.example.kvizprogramiranje1.singleton.userSingletonData
 import com.google.android.material.navigation.NavigationView
@@ -63,6 +67,7 @@ class MainQuizActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         }
         binding.quizNavView.setNavigationItemSelectedListener(this)
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.quizFragment)

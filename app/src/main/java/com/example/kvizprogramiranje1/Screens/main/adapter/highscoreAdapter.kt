@@ -1,4 +1,4 @@
-package com.example.kvizprogramiranje1.screens.main
+package com.example.kvizprogramiranje1.screens.main.adapter
 
 import android.content.Context
 import android.graphics.Color

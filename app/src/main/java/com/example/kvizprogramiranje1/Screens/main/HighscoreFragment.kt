@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentHighscoreBinding
 import com.example.kvizprogramiranje1.screens.MainQuizActivity
+import com.example.kvizprogramiranje1.screens.main.adapter.userListAdapter
 import com.example.kvizprogramiranje1.singleton.userSingletonData
 
 class HighscoreFragment : Fragment() {
@@ -31,7 +32,12 @@ class HighscoreFragment : Fragment() {
 
         val highscoreList = binding.highscoreList
         //ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, ArrayList(users))
-        arrayAdapter = userListAdapter(requireContext(), R.layout.list_item, ArrayList(users))
+        arrayAdapter =
+            userListAdapter(
+                requireContext(),
+                R.layout.list_item,
+                ArrayList(users)
+            )
         highscoreList.adapter = arrayAdapter
 
         return binding.root

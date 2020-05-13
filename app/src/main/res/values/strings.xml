@@ -58,5 +58,7 @@
     <string name="check_highscores">Check Highscores</string>
     <string name="highscores_for_list">Highscores:</string>
     <string name="call_dialog"><font size="15" color="#ffffff">Get Help?</font></string>
+    <string name="permission">Permission Denied</string>
+    <string name="denied_permission">You denied the permission</string>
 
 </resources>
