@@ -195,7 +195,7 @@
     <string name="medium9_ans4">n-1</string>
 
 
-    <string name="medium10">How will you randomizes the items of a list LST in place?</string>
+    <string name="medium10">How will you randomize the items of a list LST in place?</string>
 
     <string name="medium11">How will you capitalizes first letter of string?</string>
     <string name="medium11_ans1">upper()</string>
@@ -257,7 +257,7 @@
     <string name="easy4_ans3">0</string>
     <string name="easy4_ans4">`Error`</string>
 
-    <string name="easy5">What is called when a function is defined inside a class?</string>
+    <string name="easy5">What is it called when a function is defined inside a class?</string>
     <string name="easy5_ans1">Module</string>
     <string name="easy5_ans2">Class`</string>
     <string name="easy5_ans3">Another Function</string>
