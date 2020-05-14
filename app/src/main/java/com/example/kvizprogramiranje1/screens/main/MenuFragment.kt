@@ -1,6 +1,9 @@
 package com.example.kvizprogramiranje1.screens.main
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
@@ -18,12 +21,15 @@ import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentMenuBinding
 import com.example.kvizprogramiranje1.logic.applyLanguage
 import com.example.kvizprogramiranje1.screens.MainQuizActivity
+import java.util.*
 
 
 class MenuFragment : Fragment() {
 
     private lateinit var binding: FragmentMenuBinding
     private lateinit var spinner: Spinner
+    private lateinit var locale: Locale
+    private var language = "english"
     var questionNumber = 4
 
     @SuppressLint("ClickableViewAccessibility")
@@ -141,6 +147,7 @@ class MenuFragment : Fragment() {
             }
 
 
+
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -153,14 +160,14 @@ class MenuFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.changeLanguage -> {
-                var language = "english"
                 language = when (ConfigurationCompat.getLocales(resources.configuration).get(0)
                     .toString()) {
                     "english" -> "bs"
                     else -> "english"
                 }
+                locale = Locale(language)
                 Log.d("LANGUAGE", "Novi jezik: $language")
-                applyLanguage(requireContext(), language)
+                applyLanguage(requireContext(), language, locale)
                 val intent = activity?.intent
                 startActivity(intent)
                 true
@@ -172,4 +179,5 @@ class MenuFragment : Fragment() {
                     || super.onOptionsItemSelected(item)
         }
     }
+
 }

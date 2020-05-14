@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var uiScope: CoroutineScope
     private lateinit var users :LiveData<List<User>>
     @InternalCoroutinesApi
-    val dataSource = AppDB.getInstance(application).userDatabaseDao
+   // val dataSource = AppDB.getInstance(application).userDatabaseDao
 
     @OptIn(InternalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,15 +48,15 @@ class MainActivity : AppCompatActivity() {
             R.layout.activity_main
         )
 
-        db = AppDB.getInstance(application).userDatabaseDao;
+      /*  db = AppDB.getInstance(application).userDatabaseDao;
         job = Job()
         uiScope = CoroutineScope(Dispatchers.Main + job)
         users = db.getAllUsers()
-        val viewModelFactory = MainActivityViewModelFactory(dataSource, application)
+       // val viewModelFactory = MainActivityViewModelFactory(dataSource, application)
         val mainActivityViewModel =
             ViewModelProvider(
                 this, viewModelFactory).get(MainActivityViewModel::class.java)
-
+*/
         if (player == null) {
             player = MediaPlayer.create(this, R.raw.classy_8_bit)
             player?.isLooping = true
@@ -73,30 +73,21 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun startQuiz() {
-        Log.i("MainActivity", users.value.toString())
-        val username: String = binding.usernamePt.text.toString()
+       val username: String = binding.usernamePt.text.toString()
         val password: String = binding.passwordPt.text.toString()
-        if (db.getUserByName(username) != null) {
-            if (db.getUserByPassword(username, password) == null) {
-                showToast(applicationContext, getString(R.string.not_correct_password))
-            } else {
-                //Log.i("MainActivity", userSingletonData.getUserData().toString())
+        if (userSingletonData.findUser(username) != null) {
+            showToast(applicationContext, getString(R.string.user_exists))
+        } else {
+            if (checkUsername(username)) {
+                Log.i("MainActivity", userSingletonData.getUserData().toString())
                 val intent = Intent(this, MainQuizActivity::class.java)
                 intent.putExtra("username", username)
                 startActivity(intent)
-            }
-        } else {
-                if (checkUsername(username)) {
-                    onAddUser(username, password)
-                    //Log.i("MainActivity", userSingletonData.getUserData().toString())
-                    val intent = Intent(this, MainQuizActivity::class.java)
-                    intent.putExtra("username", username)
-                    startActivity(intent)
-                } else
-                    showToast(applicationContext, getString(R.string.toast_username))
-            }
-            val soundClick: MediaPlayer? = MediaPlayer.create(this, R.raw.click_sound)
-            soundClick?.start()
+            } else
+                showToast(applicationContext, getString(R.string.toast_username))
+        }
+        val soundClick: MediaPlayer? = MediaPlayer.create(this, R.raw.click_sound)
+        soundClick?.start()
         }
 
     fun onAddUser(username:String, password:String) {
