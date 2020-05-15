@@ -5,6 +5,7 @@ import com.example.kvizprogramiranje1.logic.getHalfQuestions
 import com.example.kvizprogramiranje1.logic.getQuarterQuestions
 
 object questionSingletonData {
+
     //Tezina
     val QUESTION_SINGLE_CHOICE: Number = 1
     val QUESTION_MULTIPLE_CHOICE: Number = 2

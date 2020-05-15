@@ -51,13 +51,17 @@ class GameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = inflate(inflater, R.layout.fragment_game, container, false)
-
-        numbQuestion = arguments?.getInt("questionNo") ?: 4
+        if(arguments?.getInt("questionNo") == 3){
+            numbQuestion = 4
+        }else {
+            numbQuestion = arguments?.getInt("questionNo") ?: 4
+        }
         val gameDifficulty = arguments?.getInt("mode") ?: 1
 
         viewModelFactory = GameViewModelFactory(numbQuestion, gameDifficulty)
         viewModel = ViewModelProvider(this, viewModelFactory)
             .get(GameViewModel::class.java)
+        if(arguments?.getInt("questionNo") == 3){numbQuestion = 3}
 
         if (viewModel.popUpClicked) {
             binding.jokerBtn.setBackgroundResource(R.drawable.glassis)
