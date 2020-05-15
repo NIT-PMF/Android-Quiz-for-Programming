@@ -1,10 +1,9 @@
 package com.example.kvizprogramiranje1.logic
 
-import android.graphics.Typeface
-import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.singleton.Question
 import com.example.kvizprogramiranje1.singleton.questionSingletonData
 
+//Singleton sa svim pitanjima i njihovim prevodima
 fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, MutableList<Question>> {
     val hardQuestionList: MutableList<Question> = mutableListOf()
     val mediumQuestionList: MutableList<Question> = mutableListOf()

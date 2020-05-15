@@ -11,6 +11,7 @@ import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.dao.UserDatabaseDao
 import com.example.kvizprogramiranje1.singleton.User
 
+//Adapter za listu korisnika unutar Highscore Fragmenta
 class userListAdapter(
     val ctx: Context,
     var resources: Int,

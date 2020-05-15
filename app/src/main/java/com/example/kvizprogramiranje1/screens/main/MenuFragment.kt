@@ -24,12 +24,11 @@ import com.example.kvizprogramiranje1.screens.MainQuizActivity
 import java.util.*
 
 
+//Fragment za menu ekran nakon ulaza u igru
 class MenuFragment : Fragment() {
 
     private lateinit var binding: FragmentMenuBinding
     private lateinit var spinner: Spinner
-    private lateinit var locale: Locale
-    private var language = "english"
     var questionNumber = 4
 
     @SuppressLint("ClickableViewAccessibility")
@@ -38,6 +37,7 @@ class MenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        //Postavljanje liste sa brojem pitanja i dodavanjem zvuka na klik
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_menu, container, false)
         spinner = binding.noQuestionSpinner
 
@@ -152,6 +152,7 @@ class MenuFragment : Fragment() {
         return binding.root
     }
 
+    //Pravljenje menu-a i dodavanjem opcija kao i listenera na te opcije
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.options_menu, menu)

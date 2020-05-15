@@ -11,6 +11,7 @@ class MainActivityViewModel(
     val database: UserDatabaseDao,
     application: Application
 ): AndroidViewModel(application) {
+    //ViewModel koji posluzuje za vracanje podataka iz baze prilikom logovanja u aplikaciju
 
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)

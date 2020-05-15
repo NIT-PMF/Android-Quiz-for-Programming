@@ -1,7 +1,7 @@
 package com.example.kvizprogramiranje1.logic
 
 import com.example.kvizprogramiranje1.singleton.Question
-import kotlin.math.round
+
 
 //Izmijesa citavu listu i vraca
 fun randomizeQuestion(questions: MutableList<Question?>) {

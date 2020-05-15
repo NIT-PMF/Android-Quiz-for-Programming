@@ -7,7 +7,6 @@ import android.content.res.Configuration
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -16,15 +15,11 @@ import androidx.core.os.ConfigurationCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.ActivityMainQuizBinding
-import com.example.kvizprogramiranje1.logic.applyLanguage
 import com.example.kvizprogramiranje1.screens.game.GameViewModel
-import com.example.kvizprogramiranje1.singleton.userSingletonData
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.drawer_header.view.*
 import java.util.*
@@ -47,6 +42,7 @@ class MainQuizActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             R.layout.activity_main_quiz
         )
 
+        //Pokretanje muzike
         if (player == null) {
             player = MediaPlayer.create(this, R.raw.insert_quarter)
             player?.isLooping = true
@@ -76,12 +72,14 @@ class MainQuizActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     }
 
 
+    //Navigacija natrag
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.quizFragment)
         return NavigationUI.navigateUp(navController, drawerLayout) || super.onSupportNavigateUp()
 
     }
 
+    //Zaustavljanje muzike
     override fun onStop() {
         super.onStop()
         if (player !== null) {
@@ -90,6 +88,7 @@ class MainQuizActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         }
     }
 
+    //Navigacija (Bocna)
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.learnProgramming -> {
@@ -121,6 +120,7 @@ class MainQuizActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         return true
     }
 
+    //Options Menu na kviz aktivnosti
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.options_menu_main, menu)

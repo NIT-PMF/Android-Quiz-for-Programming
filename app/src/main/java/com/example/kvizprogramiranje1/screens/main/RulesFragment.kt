@@ -10,6 +10,7 @@ import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.databinding.FragmentRulesBinding
 import com.example.kvizprogramiranje1.screens.MainQuizActivity
 
+//Obicni ispis pravila fragment
 class RulesFragment : Fragment() {
 
     private lateinit var binding: FragmentRulesBinding

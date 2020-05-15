@@ -30,7 +30,7 @@ import kotlinx.android.synthetic.main.drawer_header.view.*
 import java.io.InputStream
 import java.lang.reflect.Field
 
-
+//Glavni fragment za igranje, ovaj fragment poziva sam sebe prilikom prelaska na sljedece pitanje
 class GameFragment : Fragment() {
 
     private lateinit var viewModel: GameViewModel
@@ -43,6 +43,7 @@ class GameFragment : Fragment() {
     private var CLICK_D = 0
 
 
+    //Koristenje viewmodel-a za cuvanje podataka kao i factory-a za inicijalizaciju broja pitanja
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -126,6 +127,7 @@ class GameFragment : Fragment() {
     }
 
 
+    //Tokom igre imate mogucnost pozvati jokera, ova funkcija to omogucava
     private fun showPopUp() {
         if (!viewModel.popUpClicked) {
             val dialogBuilder = AlertDialog.Builder(context, R.style.quizDialogTheme)
@@ -139,6 +141,7 @@ class GameFragment : Fragment() {
         }
     }
 
+    //Pozivanje jokera
     private fun callButton() {
         binding.jokerBtn.setBackgroundResource(R.drawable.glassis)
 
@@ -148,6 +151,7 @@ class GameFragment : Fragment() {
         startActivity(intent)
     }
 
+    //Slanje sms poruke jokeru
     private fun smsButton() {
         if (viewModel.question?.isImageQuestion!!) {
             showToast(binding.root.context, getString(R.string.cant_use_for_image))
@@ -174,6 +178,7 @@ class GameFragment : Fragment() {
         }
     }
 
+    //Razne vrijednosti za promjene prilikom klika
     private fun onClickA() {
         CLICK_A++
         if (CLICK_A == 2) {

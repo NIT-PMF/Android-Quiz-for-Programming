@@ -6,20 +6,16 @@ import com.example.kvizprogramiranje1.singleton.Question
 import com.example.kvizprogramiranje1.singleton.questionSingletonData
 
 
-// The current score
+// Trenutni bodovi
 
 var score = 0
 
 class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
 
     var numOfQuestionRight = 0
-
     var popUpClicked = false
-
     var question: Question? = null
-
     var questionsList: MutableList<Question?>
-
     var points: Int
     var penaltyPoints: Int
 
@@ -47,27 +43,17 @@ class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
         nextQuestion()
     }
 
-    /** Methods for updating the UI **/
-    fun onSkip() {
-        nextQuestion()
-    }
-
-    fun onCorrect() {
-        score++
-        score = 0
-    }
-
     fun onCheckAnswers(answers: ArrayList<String>) {
         if (question?.possibleAnswers == null) {
             var answersType = answers[0].toLowerCase().split(",")
             var brojac = 0
             for (answer in answersType) {
                 brojac++
-                Log.i(answer, "lol")
+                //Log.i(answer, "lol")
                 if (question!!.correctAnswers!!.contains(answer)) {
-                    Log.i(answer, "lol")
+                    //Log.i(answer, "lol")
                     score += points
-                    if(brojac == answersType.size){
+                    if (brojac == answersType.size) {
                         numOfQuestionRight++
                     }
                 } else {
@@ -77,15 +63,15 @@ class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
         } else {
             var brojac = 0
             for (correct in question!!.correctAnswers!!) {
-                Log.i(correct, "gmm")
+                //Log.i(correct, "gmm")
                 brojac++
-                for(answer in answers){
+                for (answer in answers) {
                     Log.i(answer, "mmm")
                 }
                 if (answers.contains(correct)) {
-                        Log.i(correct, "hmm")
+                    //Log.i(correct, "hmm")
                     score += points
-                    if(brojac == answers.size){
+                    if (brojac == answers.size) {
                         numOfQuestionRight++
                     }
                 } else {
@@ -93,9 +79,7 @@ class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
                 }
             }
         }
-
         nextQuestion()
-
     }
 
     internal fun questionRemain(): Int {
@@ -103,15 +87,8 @@ class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
     }
 
     private fun nextQuestion() {
-        //Select and remove a word from the list
-        if (!questionsList.isEmpty()) {
+        if (questionsList.isNotEmpty()) {
             question = questionsList.removeAt(0)
         }
     }
-
-    override fun onCleared() {
-        super.onCleared()
-        Log.d("GameViewModel", "GameViewModelDestroyed")
-    }
-
 }

@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+//Ekvivalentno jednoj tabelu u SQLite bazi sa default vrijednostima
 @Entity(tableName = "quiz_users_table")
 data class User(
     @PrimaryKey(autoGenerate = true)

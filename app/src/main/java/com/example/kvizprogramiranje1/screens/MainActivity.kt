@@ -1,21 +1,11 @@
 package com.example.kvizprogramiranje1.screens
 
-import android.app.Application
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.room.migration.Migration
-import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.kvizprogramiranje1.MainActivityViewModel
-import com.example.kvizprogramiranje1.MainActivityViewModelFactory
 import com.example.kvizprogramiranje1.R
 import com.example.kvizprogramiranje1.dao.UserDatabaseDao
 import com.example.kvizprogramiranje1.database.AppDB
@@ -27,7 +17,6 @@ import com.example.kvizprogramiranje1.logic.showToast
 import com.example.kvizprogramiranje1.screens.main.RulesFragment
 import com.example.kvizprogramiranje1.singleton.userSingletonData
 import kotlinx.coroutines.*
-import kotlinx.coroutines.Dispatchers.Main
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,8 +28,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var job: Job
     private lateinit var uiScope: CoroutineScope
     private lateinit var users :List<User>
-    @InternalCoroutinesApi
-   // val dataSource = AppDB.getInstance(application).userDatabaseDao
 
     @OptIn(InternalCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         job = Job()
         uiScope = CoroutineScope(Dispatchers.Main + job)
 
+        //Pokretanje muzike
         if (player == null) {
             player = MediaPlayer.create(this, R.raw.classy_8_bit)
             player?.isLooping = true
@@ -60,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
         player?.start()
 
+        //Postavljanje naslova
         supportActionBar?.title = "ITQuiz Mini Game"
         supportActionBar?.subtitle = getString(R.string.by_us)
         hideKeyboard()
@@ -70,6 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    //OnClickListener za Enter
     private suspend fun startQuiz() {
        val username: String = binding.usernamePt.text.toString()
         val password: String = binding.passwordPt.text.toString()
@@ -101,6 +91,7 @@ class MainActivity : AppCompatActivity() {
         soundClick?.start()
         }
 
+    //Funkcije koje vracaju/ubacuju iz baze
     private fun getScore(username: String): String? {
         for(user in users){
             if(user.username == username)
@@ -153,6 +144,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    //Zaustavljanje Muzike
     override fun onStop() {
         super.onStop()
         if (player !== null) {
