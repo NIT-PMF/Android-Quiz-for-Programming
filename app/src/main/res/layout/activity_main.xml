@@ -60,11 +60,11 @@
                 android:background="@drawable/rectangle"
                 android:ems="10"
                 android:hint="@string/type_your_username_hint"
-                android:textAlignment="textStart"
                 android:inputType="textPersonName"
                 android:padding="4dp"
                 android:textColor="#FFB6C1"
-                android:textCursorDrawable="@drawable/text_cursor_cmd" />
+                android:textCursorDrawable="@drawable/text_cursor_cmd"
+                android:gravity="center"/>
 
 
             <EditText
@@ -81,9 +81,9 @@
                 android:hint="@string/type_your_password"
                 android:inputType="textPassword"
                 android:padding="4dp"
-                android:textAlignment="textStart"
                 android:textColor="#FFB6C1"
-                android:textCursorDrawable="@drawable/text_cursor_cmd" />
+                android:textCursorDrawable="@drawable/text_cursor_cmd"
+                android:gravity="center" />
 
             <Button
                 android:id="@+id/username_btn"

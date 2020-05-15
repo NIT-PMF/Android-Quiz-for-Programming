@@ -320,6 +320,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
     )
     easyQuestionList.addAll(
         mutableListOf(
+
             Question(
                 1,
                 "easy1",
@@ -342,7 +343,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
                 3,
                 "easy3",
                 null,
-                    mutableListOf("easy3_ans1","easy3_ans2", "easy3_ans3"),
+                mutableListOf("easy3_ans1","easy3_ans2", "easy3_ans3"),
                 mutableListOf("easy3_ans2"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
@@ -369,7 +370,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
                 6,
                 "easy6",
                 null,
-                    mutableListOf("easy6_ans1", "easy6_ans2", "easy6_ans3", "easy6_ans4"),
+                mutableListOf("easy6_ans1", "easy6_ans2", "easy6_ans3", "easy6_ans4"),
                 mutableListOf("easy6_ans2"),
                 false,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
@@ -456,15 +457,6 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
                 questionSingletonData.QUESTION_MULTIPLE_CHOICE
             ),
             Question(
-                16,
-                "easy16",
-                null,
-                mutableListOf("easy16_ans1", "Feasy16_ans2", "easy16_ans3", "easy16_ans4"),
-                mutableListOf("easy16_ans2", "easy16_ans3", "easy16_ans3"),
-                false,
-                questionSingletonData.QUESTION_MULTIPLE_CHOICE
-            ),
-            Question(
                 17,
                 "easy17",
                 "easy5.jpg",
@@ -473,6 +465,7 @@ fun allQuestions(): Triple<MutableList<Question>, MutableList<Question>, Mutable
                 true,
                 questionSingletonData.QUESTION_SINGLE_CHOICE
             )
+
         )
     )
 

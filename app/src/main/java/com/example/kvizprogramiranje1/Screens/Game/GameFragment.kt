@@ -53,6 +53,7 @@ class GameFragment : Fragment() {
         binding = inflate(inflater, R.layout.fragment_game, container, false)
         if(arguments?.getInt("questionNo") == 3){
             numbQuestion = 4
+
         }else {
             numbQuestion = arguments?.getInt("questionNo") ?: 4
         }

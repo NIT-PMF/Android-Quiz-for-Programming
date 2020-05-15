@@ -51,6 +51,9 @@ class ScoreFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        (activity as MainQuizActivity).supportActionBar?.title = getString(R.string.score_title)
+
         score = arguments?.getInt("score") ?: 0
         joker = arguments?.getBoolean("joker") ?: false
 

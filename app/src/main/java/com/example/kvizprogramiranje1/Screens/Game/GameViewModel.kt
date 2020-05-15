@@ -27,6 +27,7 @@ class GameViewModel(questionNumber: Int, mode: Int) : ViewModel() {
             questionsList = questionSingletonData.giveEasyQuiz(questionNumber)
             points = 10
             penaltyPoints = 5
+            Log.i("MainActivity", questionsList.toString())
         } else if (mode == 2) {
             questionsList = questionSingletonData.giveMediumQuiz(questionNumber)
             Log.i("MainActivity", questionsList.toString())
