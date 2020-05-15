@@ -11,22 +11,22 @@ import com.example.kvizprogramiranje1.entity.User
 interface UserDatabaseDao {
 
     @Insert
-    fun insert(user: User)
+    suspend fun insert(user: User)
 
     @Update
-    fun update(user: User)
+    suspend fun update(user: User)
 
-    @Query ("update quiz_users_table SET userScore = :score where UserId = :userId")
-    fun updateUser(userId:Int, score:Int)
+    @Query ("update quiz_users_table SET userScore = :score where username = :username")
+    suspend fun updateUser(username: String, score:Int)
 
     @Query("DELETE FROM quiz_users_table WHERE UserId = :id")
-    fun deleteUsers(id: Int)
+    suspend fun deleteUsers(id: Int)
 
     @Query("SELECT * from quiz_users_table WHERE UserId = :key")
     fun get(key: Int): User?
 
     @Query("DELETE FROM quiz_users_table")
-    fun clear()
+    suspend fun clear()
 
     @Query("SELECT * FROM quiz_users_table WHERE username = :username AND userPassword = :password")
     fun getUserByPassword(username :String,password :String): User?
@@ -38,5 +38,5 @@ interface UserDatabaseDao {
     fun getUsers(): User?
 
     @Query("SELECT * FROM quiz_users_table ORDER BY userScore DESC")
-    fun getAllUsers(): LiveData<List<User>>
+    fun getAllUsers(): List<User>
 }

@@ -15,8 +15,17 @@ import androidx.databinding.DataBindingUtil.inflate
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.kvizprogramiranje1.R
+import com.example.kvizprogramiranje1.dao.UserDatabaseDao
+import com.example.kvizprogramiranje1.database.AppDB
 import com.example.kvizprogramiranje1.databinding.ScoreFragmentBinding
+import com.example.kvizprogramiranje1.entity.User
 import com.example.kvizprogramiranje1.logic.showToast
+import com.example.kvizprogramiranje1.screens.MainQuizActivity
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.drawer_header.view.*
+import kotlinx.coroutines.*
+
+
 
 class ScoreFragment : Fragment() {
 
@@ -24,6 +33,11 @@ class ScoreFragment : Fragment() {
     private lateinit var binding: ScoreFragmentBinding
     var score: Int = 0
     var joker: Boolean = false
+    private lateinit var db: UserDatabaseDao
+    private lateinit var job: Job
+    private lateinit var uiScope: CoroutineScope
+    private lateinit var users :List<User>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +46,7 @@ class ScoreFragment : Fragment() {
         }
     }
 
+    @InternalCoroutinesApi
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,10 +54,20 @@ class ScoreFragment : Fragment() {
         score = arguments?.getInt("score") ?: 0
         joker = arguments?.getBoolean("joker") ?: false
 
+
+        db = AppDB.getInstance(requireContext()).userDatabaseDao
+        job = Job()
+        uiScope = CoroutineScope(Dispatchers.Main + job)
+
+        uiScope.launch{
+            updateScore()
+        }
+
         val correct = arguments?.getInt("rightQuestions") ?: 0
         val numQ = arguments?.getInt("questionNumber") ?: 0
 
         binding = inflate(inflater, R.layout.score_fragment, container, false)
+
 
         binding.scoreView.text = score.toString()
         binding.correctQuestion.text = "$correct / $numQ"
@@ -93,6 +118,32 @@ class ScoreFragment : Fragment() {
                 .setType("text/plain")
                 .intent
         )
+    }
+
+    private suspend fun updateScore(){
+        getAllUsers()
+        val username = (activity as MainQuizActivity).findViewById<NavigationView>(R.id.quizNavView).getHeaderView(0).username_menu_tv.text
+
+        if(getScore(username.toString())?.toInt()!! < score ) {
+            (activity as MainQuizActivity).findViewById<NavigationView>(R.id.quizNavView)
+                .getHeaderView(0).highscore_number_tv.text = score.toString()
+            db.updateUser(username.toString(), score)
+        }
+
+    }
+
+    private suspend fun getAllUsers(){
+        withContext(Dispatchers.IO){
+            users = db.getAllUsers()
+        }
+    }
+
+    private fun getScore(username: String): String? {
+        for(user in users){
+            if(user.username == username)
+                return user.userScore.toString()
+        }
+        return null
     }
 
 }

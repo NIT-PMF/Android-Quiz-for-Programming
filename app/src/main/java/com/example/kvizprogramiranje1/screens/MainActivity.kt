@@ -27,6 +27,7 @@ import com.example.kvizprogramiranje1.logic.showToast
 import com.example.kvizprogramiranje1.screens.main.RulesFragment
 import com.example.kvizprogramiranje1.singleton.userSingletonData
 import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers.Main
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var db: UserDatabaseDao
     private lateinit var job: Job
     private lateinit var uiScope: CoroutineScope
-    private lateinit var users :LiveData<List<User>>
+    private lateinit var users :List<User>
     @InternalCoroutinesApi
    // val dataSource = AppDB.getInstance(application).userDatabaseDao
 
@@ -48,15 +49,10 @@ class MainActivity : AppCompatActivity() {
             R.layout.activity_main
         )
 
-      /*  db = AppDB.getInstance(application).userDatabaseDao;
+        db = AppDB.getInstance(application).userDatabaseDao
         job = Job()
         uiScope = CoroutineScope(Dispatchers.Main + job)
-        users = db.getAllUsers()
-       // val viewModelFactory = MainActivityViewModelFactory(dataSource, application)
-        val mainActivityViewModel =
-            ViewModelProvider(
-                this, viewModelFactory).get(MainActivityViewModel::class.java)
-*/
+
         if (player == null) {
             player = MediaPlayer.create(this, R.raw.classy_8_bit)
             player?.isLooping = true
@@ -68,20 +64,35 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.subtitle = getString(R.string.by_us)
         hideKeyboard()
         rulesFragment = RulesFragment()
-        binding.usernameBtn.setOnClickListener{ startQuiz() }
+        binding.usernameBtn.setOnClickListener{
+            uiScope.launch { startQuiz()  }
+            }
     }
 
 
-    private fun startQuiz() {
+    private suspend fun startQuiz() {
        val username: String = binding.usernamePt.text.toString()
         val password: String = binding.passwordPt.text.toString()
-        if (userSingletonData.findUser(username) != null) {
-            showToast(applicationContext, getString(R.string.user_exists))
-        } else {
-            if (checkUsername(username)) {
+
+        getAllUsers()
+
+        if (userExists(username)) {
+            if(checkPassword(password, username)){
                 Log.i("MainActivity", userSingletonData.getUserData().toString())
                 val intent = Intent(this, MainQuizActivity::class.java)
                 intent.putExtra("username", username)
+                intent.putExtra("score", getScore(username))
+                startActivity(intent)
+            }else {
+                showToast(applicationContext, getString(R.string.user_exists))
+            }
+        } else {
+            if (checkUsername(username)) {
+                onAddUser(username, password)
+                Log.i("MainActivity", userSingletonData.getUserData().toString())
+                val intent = Intent(this, MainQuizActivity::class.java)
+                intent.putExtra("username", username)
+                intent.putExtra("score", getScore(username))
                 startActivity(intent)
             } else
                 showToast(applicationContext, getString(R.string.toast_username))
@@ -90,14 +101,48 @@ class MainActivity : AppCompatActivity() {
         soundClick?.start()
         }
 
+    private fun getScore(username: String): String? {
+        for(user in users){
+            if(user.username == username)
+                return user.userScore.toString()
+        }
+        return null
+    }
+
+    fun userExists(username: String): Boolean {
+        for(user in users){
+            if(user.username == username) {
+                return true
+            }
+        }
+        return false
+    }
+    fun checkPassword(password: String, username: String): Boolean {
+        for (user in users){
+            if(user.username == username && user.userPassword == password) {
+                return true
+            }
+        }
+        return false
+    }
+
+
     fun onAddUser(username:String, password:String) {
         uiScope.launch {
             val user = User()
             user.username = username
             user.userScore = 0
             user.userPassword = password
-            insert(user) 
-            Log.i("Main Activity", users.value?.get(0)?.username.toString())
+            insert(user)
+            getAllUsers()
+            Log.i("MainActivity", users.toString())
+            delay(1000)
+        }
+    }
+
+    private suspend fun getAllUsers(){
+        withContext(Dispatchers.IO){
+            users = db.getAllUsers()
         }
     }
 

@@ -255,7 +255,6 @@ class GameFragment : Fragment() {
         (activity as MainQuizActivity).supportActionBar?.title =
             getString(R.string.question_no_title) + (numbQuestion - viewModel.questionRemain())
 
-        (activity as MainQuizActivity).findViewById<NavigationView>(R.id.quizNavView).getHeaderView(0).highscore_number_tv.text = score.toString()
     }
 
     private fun updateImageLayout() {

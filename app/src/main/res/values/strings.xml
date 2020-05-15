@@ -55,7 +55,7 @@
     <string name="game_rules_title">Game Rules</string>
     <string name="question_no_title">"Question Number: "</string>
     <string name="by_us">By NIT</string>
-    <string name="user_exists">User Already Exists. Choose another</string>
+    <string name="user_exists">User Already Exists. Password incorrect</string>
     <string name="password_incorrect">Password incorrect</string>
     <string name="mute_unmute_music">Mute/Unmute Music</string>
     <string name="check_highscores">Check Highscores</string>
