@@ -158,7 +158,7 @@ class MenuFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
+       /* return when (item.itemId) {
             R.id.changeLanguage -> {
                 language = when (ConfigurationCompat.getLocales(resources.configuration).get(0)
                     .toString()) {
@@ -171,13 +171,12 @@ class MenuFragment : Fragment() {
                 val intent = activity?.intent
                 startActivity(intent)
                 true
-            }
-            else -> NavigationUI.onNavDestinationSelected(
+            }*/
+            return NavigationUI.onNavDestinationSelected(
                 item,
                 requireView().findNavController()
             )
                     || super.onOptionsItemSelected(item)
-        }
     }
 
 }

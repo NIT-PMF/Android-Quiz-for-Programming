@@ -12,10 +12,6 @@
         android:id="@+id/rulesFragment"
         android:title="@string/rules_title" />
 
-    <item
-        android:id="@+id/changeLanguage"
-        android:title="@string/change_language_to_ba" />
-
     </group>
 
     <group

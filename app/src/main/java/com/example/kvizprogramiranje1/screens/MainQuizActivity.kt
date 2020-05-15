@@ -146,14 +146,14 @@ class MainQuizActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         }
     }
 
-    //JEZIK PROMJENA
+    //JEZIK PROMJENA FUNKCIJE ZA CUVANJE VRIJEDNOSTI i OCUVANJE NAKON ROTACIJE
     fun loadLocale() {
         val langPref = "Language"
         val prefs: SharedPreferences = getSharedPreferences(
             "CommonPrefs",
             Activity.MODE_PRIVATE
         )
-        val language = prefs.getString(langPref, "")
+        val language = prefs.getString(langPref, "english")
         changeLang(language)
     }
 
