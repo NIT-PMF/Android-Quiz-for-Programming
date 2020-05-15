@@ -67,9 +67,8 @@ class MainQuizActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             val username = bundle.getString("username")
             binding.quizNavView.getHeaderView(0).username_menu_tv.text = username
 
-            val score = userSingletonData.getUserByName(username.toString())?.score
-            binding.quizNavView.getHeaderView(0).highscore_number_tv.text =
-                (score?.toString() ?: "0")
+            val score = bundle.getString("score")
+            binding.quizNavView.getHeaderView(0).highscore_number_tv.text = score
 
 
         }
