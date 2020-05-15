@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">ITKviz</string>
     <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Upišite_vaš_Username:</string>
-    <string name="type_your_password"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Upišite_vaš_Password:</string>
+    <string name="type_your_password"><font color="#FFB6C1">C:\\\\Lozinka:</font></string>
 
     <string name="app_logo_description">Logo Aplikacije</string>
     <string name="done">Gotovo</string>

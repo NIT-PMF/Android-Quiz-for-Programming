@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">"ITQuiz"</string>
     <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Type_Your_Username:</string>
-    <string name="type_your_password"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Type_Your_Password:</string>
+    <string name="type_your_password"><font color="#FFB6C1">C:\\\\Password:</font></string>
 
     <string name="app_logo_description">App Logo</string>
     <string name="done">Done</string>
