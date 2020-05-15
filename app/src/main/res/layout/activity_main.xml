@@ -59,9 +59,10 @@
                 android:autofillHints="username"
                 android:background="@drawable/rectangle"
                 android:ems="10"
+                android:hint="@string/type_your_username_hint"
+                android:textAlignment="textStart"
                 android:inputType="textPersonName"
                 android:padding="4dp"
-                android:textAlignment="center"
                 android:textColor="#FFB6C1"
                 android:textCursorDrawable="@drawable/text_cursor_cmd" />
 

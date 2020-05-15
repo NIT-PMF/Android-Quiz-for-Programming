@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">"ITQuiz"</string>
-    <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Type_Your_Username:</string>
+    <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Type_Your_Info:</string>
     <string name="type_your_password"><font color="#FFB6C1">C:\\\\Password:</font></string>
 
     <string name="app_logo_description">App Logo</string>
@@ -336,10 +336,7 @@
     <string name="easy17_ans2">edureka python</string>
     <string name="easy17_ans3">[`edurekapython`]</string>
     <string name="easy17_ans4">edurekapython</string>
-
-
-
-
+    <string name="type_your_username_hint"><font color="#FFB6C1">C:\\\\Username:</font></string>
 
 
 </resources>

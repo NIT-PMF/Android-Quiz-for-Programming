@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ITKviz</string>
-    <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Upišite_vaš_Username:</string>
+    <string name="type_your_username"><font color="#FFB6C1">C:\\\\ITQuiz\\\\</font>Upišite_vaše_Informacije:</string>
     <string name="type_your_password"><font color="#FFB6C1">C:\\\\Lozinka:</font></string>
 
     <string name="app_logo_description">Logo Aplikacije</string>
@@ -293,7 +293,7 @@
     <string name="easy17_ans3">[`edurekapython`]</string>
     <string name="easy17_ans4">edurekapython</string>
     <string name="not_correct_password">Netačna Lozinka</string>
-    <string name="hard2">Pretpostavimo da imamo 2 seta A &#38; B, tada je A &#60; B?</string>
+    <string name="hard2">Pretpostavimo da imamo 2 seta  A &#38; B, tada jeA &#60; B?</string>
     <string name="hard2_ans3">Tačno ukoliko su elementi iz A u poređenju sa B manji.</string>
     <string name="hard3">Koje opcije su tačne za pravljenje praznog skupa u Pythonu?</string>
     <string name="hard4_ans1">Dijeli float elemente</string>
@@ -319,6 +319,7 @@
     <string name="easy7_ans4">Nema limita</string>
     <string name="easy8">Navedi barem 4 funkcije koje Lista objekat  podržava u Pythonu (primjer \"reverse\")</string>
     <string name="easy9">Koji od navedenih primjera je netačan za dodavanje 1 na varijablu u Pythonu?</string>
+    <string name="type_your_username_hint"><font color="#FFB6C1">C:\\\\Ime Korisnika:</font></string>
 
 
 </resources>
